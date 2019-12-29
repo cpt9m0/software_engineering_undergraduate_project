@@ -38,9 +38,18 @@ class Register extends Component {
         "email": email,
         "password": password2
       }
+      console.log(data);
       axios.post('/user/register-user/', data, {headers: headers}).then(
-        res => console.log(res.data)
-      )
+        res => {
+          if(res.status == 201){
+            alert("redirect!!!");
+          }
+        }
+      ).catch(error => {
+        if (error){
+          alert("There is an error");
+        }
+      })
     }else{
       alert("رمز عبور مطابقت ندارد")
     }
