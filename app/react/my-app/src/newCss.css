@@ -22,7 +22,7 @@
     padding-bottom: 30px;
     background-color: rgba(240, 248, 255, 0.9);
     overflow-y: auto;
-    text-align: right;
+    text-align: center;
     border-radius: 20px;
   }
 
@@ -224,7 +224,7 @@ ul {
   cursor: pointer;
 }
 
-td {
+#But {
   background-color: #264e86;
   border-radius: 100px;
   padding: 30px;
@@ -232,6 +232,7 @@ td {
 
 #score{
   background-color: #168d0c;
+  border-radius: 40px;
 }
 
 .News {
@@ -290,4 +291,29 @@ td {
   
   background-color: #264e86;
   cursor: pointer;
+}
+
+#scorep{
+  background-color: #264e86;
+  border-radius: 40px;
+  width: 20%;
+  height: 50px;
+  margin: 0 auto;
+  left: 40%;
+}
+
+#plikes{
+  background-color: #168d0c;
+  float: left;
+  border-radius: 40px;
+  padding: 20px;
+  margin: 40px;
+}
+
+#pdislikes {
+  background-color: red;
+  padding: 20px;
+  border-radius: 40px;
+  float: right;
+  margin: 40px;
 }

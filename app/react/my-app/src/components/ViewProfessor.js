@@ -24,7 +24,7 @@ var data = [
 ];
 
 
-class TopProfessors extends React.Component {
+class ViewProfessor extends React.Component {
     
     constructor() {
         super();
@@ -38,20 +38,19 @@ class TopProfessors extends React.Component {
         };
       }
 
-
       state = {
-        redirectProfessor:false
+        redirectProfessorRate:false
       } 
 
-        setRedirectProfessor = () => {
+        setRedirectProfessorRate = () => {
           this.setState({
-            redirectProfessor: true
+            redirectProfessorRate: true
           })
         }
 
-        renderRedirectProfessor = () => {
-          if (this.state.redirectProfessor) {
-            return <Redirect to='./ViewProfessor' />
+        renderRedirectProfessorRate = () => {
+          if (this.state.redirectProfessorRate) {
+            return <Redirect to='./ProfessorRate' />
           }
         }
 
@@ -70,6 +69,11 @@ class TopProfessors extends React.Component {
         overall_score: 8.8,
         name: "مینایی",
         university: "علم و صنعت",
+        email: "b_minaei-at-iust.ac.ir",
+        phone: "+98-21-73225330",
+        fax: "+98-21-73021616",
+        address: " تهران، نارمک، دانشگاه علم و صنعت، دانشکده مهندسی کامپیوتر، اتاق 309",
+        webpage: "http://webpages.iust.ac.ir/b_minaei",
         likes: "10",
         dislikes: "3"
     }
@@ -78,24 +82,22 @@ class TopProfessors extends React.Component {
       <div>
         <Header/> 
         <div className="allBackground">
-            <div> {this.renderRedirectProfessor()}
-            <div className="ProfessorButton" onClick={this.setRedirectProfessor}>
-                <table>
-                    <tr>
-                        <td id="But">استاد {jsonData.name}</td>
-                        <td id="But">{jsonData.university}</td>
-                        <td id="But">likes: {jsonData.likes}</td>
-                        <td id="But">dislikes: {jsonData.dislikes}</td>
-                        <td id="score">امتیاز {jsonData.overall_score}</td>
-                    </tr>
-
-                </table>
-            </div>
-            </div>
+            <h1>استاد {jsonData.name}</h1>
+            <h1 id="scorep">امتیاز {jsonData.overall_score}</h1>
+            <h1 id="plikes">likes: {jsonData.likes}</h1>
+            <h1 id="pdislikes">dislikes: {jsonData.dislikes}</h1>
+            <h2>دانشگاه: {jsonData.university}</h2>
+            <hr/>
+            <h3>ایمیل: {jsonData.email}</h3>
+            <h3>شماره تماس: {jsonData.phone}</h3>
+            <h3>فکس: {jsonData.fax}</h3>
+            <h2>سایت: {jsonData.phone}</h2>      
+            <p>آدرس: {jsonData.address}</p>
+            <div>{this.renderRedirectProfessorRate()}<button className="buttonStudent" onClick={this.setRedirectProfessorRate}><span>ارزیابی استاد</span></button></div>
         </div>
       </div>
     );
   }
 }
 
-export default TopProfessors;
+export default ViewProfessor;

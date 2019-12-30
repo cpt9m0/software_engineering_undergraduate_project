@@ -58,9 +58,9 @@ class TopUniversities extends React.Component {
             <div className="UniversityButton">
                 <table>
                     <tr>
-                        <td>دانشگاه {jsonData.university}</td>
-                        <td>likes: {jsonData.likes}</td>
-                        <td>dislikes: {jsonData.dislikes}</td>
+                        <td id="But">دانشگاه {jsonData.university}</td>
+                        <td id="But">likes: {jsonData.likes}</td>
+                        <td id="But">dislikes: {jsonData.dislikes}</td>
                         <td id="score">امتیاز {jsonData.score}</td>
                     </tr>
 
