@@ -45,11 +45,24 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     # Third-Party Apps
     'rest_framework',
+    'corsheaders',
 ]
+
+# CORS Headers
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000', # React Port
+    ]
+CORS_ORIGIN_REGEX_WHITELIST = [
+    'http://localhost:3000', # React Port
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # CORS Headers
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

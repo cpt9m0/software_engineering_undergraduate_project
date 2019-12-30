@@ -5,7 +5,7 @@ from rest_framework import serializers
 User = get_user_model()
 
 
-class CustomUserSerializer(serializers.ModelSerializer):
+class CustomUserCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """
         Override create method: set_password before save
@@ -19,6 +19,16 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            'username', 'first_name', 'last_name',
+            'username', 'password', 'first_name', 'last_name',
             'email', 'is_professor'
             ]
+
+
+class CustomUserReadSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = [
+            'username', 'first_name', 'last_name',
+            'email', 'is_professor'
+        ]

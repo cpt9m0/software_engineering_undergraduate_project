@@ -8,7 +8,8 @@ from rest_framework.parsers import JSONParser
 
 from rate.models import Course, ProfessorRate
 from rate.serializers import CourseSerializer, ProfessorRateSerializer
-from user.serializers import CustomUserSerializer
+from user.serializers import CustomUserCreateSerializer,\
+    CustomUserReadSerializer
 
 User = get_user_model()
 
@@ -41,7 +42,7 @@ def register_professor(request):
     if request.method == 'POST':
         data = JSONParser().parse(request)
         data['is_professor'] = True
-        serializer = CustomUserSerializer(data=data)
+        serializer = CustomUserCreateSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
@@ -55,7 +56,7 @@ def get_professors(request):
     """
     if request.method == 'GET':
         professors = User.objects.filter(is_professor=True, is_active=True)
-        serializer = CustomUserSerializer(professors, many=True)
+        serializer = CustomUserReadSerializer(professors, many=True)
         return JsonResponse(serializer.data, safe=False)
 
 
@@ -69,7 +70,7 @@ def get_top_professors(request):
         top_professors = User.objects.filter(
             username__in=[rate.professor.username for rate in top_rates]
             )
-        serializer = CustomUserSerializer(top_professors, many=True)
+        serializer = CustomUserReadSerializer(top_professors, many=True)
         return JsonResponse(serializer.data, safe=False)
 
 
