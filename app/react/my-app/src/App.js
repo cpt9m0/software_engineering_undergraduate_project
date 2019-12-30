@@ -5,6 +5,7 @@ import Register from './components/Register';
 import Logintoregister from './components/Logintoregister';
 import RegisterOstad from './components/RegisterOstad';
 import ProfessorRate from './components/ProfessorRate';
+import TopProfessors from './components/TopProfessors';
 import UniversityRate from './components/UniversityRate';
 import Addpage from './components/Addpage';
 import Test from './components/Test';
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/Comment" component={Comments}/>
         <Route exact path="/Addpage" component={Addpage}/>
         <Route exact path="/Test" component={Test}/>
+        <Route exact path="/TopProfessors" component={TopProfessors}/>
       </Switch>
     </Router>
     

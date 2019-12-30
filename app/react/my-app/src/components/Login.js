@@ -19,7 +19,6 @@ class Login extends Component {
   
     componentWillMount = ()=>{
       this.setState({isLogin: false});
-      alert(this.state.isLogin)
     }
 
     setRedirect = () => {

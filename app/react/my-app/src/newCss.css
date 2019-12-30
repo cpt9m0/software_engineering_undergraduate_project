@@ -19,9 +19,9 @@
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    padding-bottom: 30px;
     background-color: rgba(240, 248, 255, 0.9);
     overflow-y: auto;
-    z-index: -1;
     text-align: right;
     border-radius: 20px;
   }
@@ -65,6 +65,7 @@
     height: 600px;
     position: relative;
     text-align: center;
+    border: dotted;
     border-radius: 20px;
     margin: 0 auto;
     width: 50%;
@@ -183,6 +184,8 @@ a{
 .App {
   margin: 0 10%;
   text-align: center;
+  border-radius: 10px;
+  padding: 30px;
 }
 
 .boxesSpace {
@@ -201,4 +204,72 @@ a{
 
 ul {
   list-style: none;
+}
+
+.ProfessorButton{
+  background: #7F9EDC;
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  height: 85px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+  border: dotted;
+}
+
+.ProfessorButton:hover{
+  
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+td {
+  background-color: #264e86;
+  border-radius: 100px;
+  padding: 30px;
+}
+
+#score{
+  background-color: #168d0c;
+}
+
+.News {
+  background-color:lightblue;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.Tops{
+  background-color:lightblue;
+  margin: 20px;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.PButton {
+  background-color: white;
+  border-radius: 100px;
+  padding: 30px;
+  width: 120px;
+  text-align: center;
+}
+
+.UButton {
+  background-color: white;
+  border-radius: 100px;
+  padding: 30px;
+}
+
+.PButton:hover {
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+.UButton:hover {
+  background-color: #264e86;
+  cursor: pointer;
 }

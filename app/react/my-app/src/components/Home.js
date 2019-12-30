@@ -30,7 +30,15 @@ class Home extends Component {
             <div className="Home">
                 <Header/>
                 <div className="allBackground">
-                  <News newsList={this.state.newsList}/>
+                  <div className="Tops">
+                  <table>
+                    <td className="PButton">اساتید برتر</td>
+                    <td className="UButton">دانشگاه های برتر</td>
+                  </table>
+                  </div>
+                  <div className="News">
+                    <News newsList={this.state.newsList}/>
+                  </div>
                 </div>
             </div>
             

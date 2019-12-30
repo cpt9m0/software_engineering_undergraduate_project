@@ -137,10 +137,10 @@ class ProfessorRate extends React.Component {
                 <br/>
                 <button className="submit" onClick={this.setRedirectStudent}><span>تایید</span></button>
             </div>
-            
+            <Comments/>
             
         </div>
-        <Comments/>
+        
       </div>
     );
   }
