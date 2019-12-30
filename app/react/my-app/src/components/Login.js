@@ -89,7 +89,7 @@ class Login extends Component {
           <input type="text" name="" id="username" placeholder="شماره دانشجویی"></input>
           <p>رمز عبور</p>
           <input type="password" id="password" name="" placeholder="**********"></input>
-          <div>{this.renderRedirectTest()}<input type="button" name="" value="ورود" onClick={this.loginOnClick}></input></div>
+          <div>{this.renderRedirectHome()}<input type="submit" name="" value="ورود" onClick={this.setRedirectHome}></input></div>
         </form>
     </div>
     <div>

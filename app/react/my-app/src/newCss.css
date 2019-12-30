@@ -190,15 +190,26 @@ a{
 
 .boxesSpace {
   height: 500px;
+  border-radius: 20px;
+  background-color: aliceblue;
   border: 1px solid;
   overflow: auto;
 }
 
+#commentBut {
+  background-color: #264e86;
+  border-radius: 20px;
+  width: 70px;
+  height: 30px;
+}
+
 .CommentBox {
-  border: solid 1px;
+  border: dotted 3px;
+  background-color: #7F9EDC;
   width: 200px;
   margin: 20px;
   padding: 10px;
+  border-radius: 20px;
   float: left;
 }
 
@@ -316,4 +327,20 @@ ul {
   border-radius: 40px;
   float: right;
   margin: 40px;
+}
+
+.comments {
+  background-color: #264e86;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+.button1 {
+  background-color: #264e86;
+  border-radius: 30px;
+}
+
+.button1:hover {
+  background-color: #168d0c;
 }

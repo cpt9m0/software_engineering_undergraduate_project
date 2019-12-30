@@ -37,6 +37,24 @@ class TopUniversities extends React.Component {
         };
       }
 
+
+      state = {
+        redirectUniversity:false
+      } 
+
+        setRedirectUniversity = () => {
+          this.setState({
+            redirectUniversity: true
+          })
+        }
+
+        renderRedirectUniversity = () => {
+          if (this.state.redirectUniversity) {
+            return <Redirect to='./ViewUniversity' />
+          }
+        }
+
+
       //componentDidMount() {
       //  axios.get('/user/get-top-professors', data, {headers:headers}).then(
       //    res => console.log(res.data)
@@ -48,14 +66,15 @@ class TopUniversities extends React.Component {
         university: "علم و صنعت",
         likes: "6",
         dislikes: "3",
-        score: "۶.۸"
+        score: "6.8"
       }
     
     return (                
       <div>
         <Header/> 
         <div className="allBackground">
-            <div className="UniversityButton">
+        <div> {this.renderRedirectUniversity()}
+            <div className="UniversityButton" onClick={this.setRedirectUniversity}>
                 <table>
                     <tr>
                         <td id="But">دانشگاه {jsonData.university}</td>
@@ -66,6 +85,7 @@ class TopUniversities extends React.Component {
 
                 </table>
             </div>
+        </div>    
         </div>
       </div>
     );

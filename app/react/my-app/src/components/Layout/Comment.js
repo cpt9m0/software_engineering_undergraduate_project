@@ -25,7 +25,7 @@ class Comments extends Component {
            })}
         </div>
         <div className="buttonBar">
-          <button onClick={this.addNewCommentBox.bind(this)}>Add new commentbox</button>
+          <button id="commentBut" onClick={this.addNewCommentBox.bind(this)}>کامنت</button>
         </div>        
 
         
@@ -46,7 +46,7 @@ class CommentBox extends Component {
     let newCommentId = this.state.commentId + 1;
     this.setState({commentId: newCommentId});
     
-    let comment = {id:this.state.commentId, author: 'me', text: commentText}
+    let comment = {id:this.state.commentId, author: 'من', text: commentText}
     this.setState({comments: this.state.comments.concat(comment)});
   }  
   render() {
@@ -73,7 +73,7 @@ class CommentInput extends Component {
     return (
       <div className="CommentInput">
         <input ref={(ref) => this.textInput = ref} type="text"></input>
-        <button onClick={this.handleOnSubmit.bind(this)}>Send</button>
+        <button id="commentBut" onClick={this.handleOnSubmit.bind(this)}>فرستادن</button>
       </div>
     );
   }

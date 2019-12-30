@@ -9,6 +9,7 @@ import TopProfessors from './components/TopProfessors';
 import ViewProfessor from './components/ViewProfessor';
 import UniversityRate from './components/UniversityRate';
 import TopUniversities from './components/TopUniversities';
+import ViewUniversity from './components/ViewUniversity';
 import Addpage from './components/Addpage';
 import Test from './components/Test';
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/TopProfessors" component={TopProfessors}/>
         <Route exact path="/TopUniversities" component={TopUniversities}/>
         <Route exact path="/ViewProfessor" component={ViewProfessor}/>
+        <Route exact path="/ViewUniversity" component={ViewUniversity}/>
       </Switch>
     </Router>
     

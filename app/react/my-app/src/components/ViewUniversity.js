@@ -24,7 +24,7 @@ var data = [
 ];
 
 
-class ViewProfessor extends React.Component {
+class ViewUniversity extends React.Component {
     
     constructor() {
         super();
@@ -39,18 +39,18 @@ class ViewProfessor extends React.Component {
       }
 
       state = {
-        redirectProfessorRate:false
+        redirectUniversityRate:false
       } 
 
-        setRedirectProfessorRate = () => {
+        setRedirectUniversityRate = () => {
           this.setState({
-            redirectProfessorRate: true
+            redirectUniversityRate: true
           })
         }
 
-        renderRedirectProfessorRate = () => {
-          if (this.state.redirectProfessorRate) {
-            return <Redirect to='./ProfessorRate' />
+        renderRedirectUniversityRate = () => {
+          if (this.state.redirectUniversityRate) {
+            return <Redirect to='./UniversityRate' />
           }
         }
 
@@ -66,15 +66,13 @@ class ViewProfessor extends React.Component {
     const { likes } = this.state;
     const { dislikes } = this.state;
     const jsonData = {
-        overall_score: 8.8,
-        name: "مینایی",
+        overall_score: 6.8,
         university: "علم و صنعت",
-        email: "b_minaei-at-iust.ac.ir",
-        phone: "+98-21-73225330",
-        fax: "+98-21-73021616",
-        address: " تهران، نارمک، دانشگاه علم و صنعت، دانشکده مهندسی کامپیوتر، اتاق 309",
-        webpage: "http://webpages.iust.ac.ir/b_minaei",
-        likes: "10",
+        phone: "(9821+)77451500-9",
+        webpage: "http://www.iust.ac.ir/",
+        postalCode: "13114-16846",
+        address: " ایران، تهران، رسالت، خیابان هنگام، خیابان دانشگاه، دانشگاه علم و صنعت ایران",
+        likes: "6",
         dislikes: "3"
     }
     
@@ -82,18 +80,16 @@ class ViewProfessor extends React.Component {
       <div>
         <Header/> 
         <div className="allBackground">
-            <h1>استاد {jsonData.name}</h1>
+            <h2>دانشگاه: {jsonData.university}</h2>
             <h1 id="scorep">امتیاز {jsonData.overall_score}</h1>
             <h1 id="plikes">likes: {jsonData.likes}</h1>
             <h1 id="pdislikes">dislikes: {jsonData.dislikes}</h1>
-            <h2>دانشگاه: {jsonData.university}</h2>
             <hr/>
-            <h3>ایمیل: {jsonData.email}</h3>
             <h3>شماره تماس: {jsonData.phone}</h3>
-            <h3>فکس: {jsonData.fax}</h3>
+            <h3>کد پستی: {jsonData.postalCode}</h3>
             <h4>سایت: {jsonData.webpage}</h4>      
             <p>نشانی: {jsonData.address}</p>
-            <div>{this.renderRedirectProfessorRate()}<button className="buttonStudent" onClick={this.setRedirectProfessorRate}><span>ارزیابی استاد</span></button></div>
+            <div>{this.renderRedirectUniversityRate()}<button className="buttonStudent" onClick={this.setRedirectUniversityRate}><span>ارزیابی دانشگاه</span></button></div>
             <div className="comments">
                 Comments
             </div>
@@ -103,4 +99,4 @@ class ViewProfessor extends React.Component {
   }
 }
 
-export default ViewProfessor;
+export default ViewUniversity;
