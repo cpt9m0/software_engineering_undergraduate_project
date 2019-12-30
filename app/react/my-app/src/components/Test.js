@@ -20,9 +20,12 @@ class Test extends Component {
             "facility_rate": 4,
             "internet_rate": 4
         }
+        let HOST = 'http://127.0.0.1:8000'
 
-        axios.get('/university/get-university-rates/1/', data, {headers:headers}).then(
-            res => console.log(res.data)
+        axios.get(`${HOST}/university/get-university-rates/1/`, data, {headers:headers}).then(
+            res => {
+                console.log(res);
+            }
           )          
     }
     render() {

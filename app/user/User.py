@@ -5,11 +5,9 @@ from django.http import JsonResponse
 
 from rest_framework.parsers import JSONParser
 
-from user.serializers import CustomUserCreateSerializer,\
-    CustomUserReadSerializer
+from user.serializers import CustomUserCreateSerializer
 
 
-@csrf_exempt
 def login_user(request):
     """
     Login user with username and password

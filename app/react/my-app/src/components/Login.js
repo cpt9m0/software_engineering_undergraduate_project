@@ -7,6 +7,8 @@ import Logintoregister from './Logintoregister';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
 class Login extends Component {
   state = {
@@ -19,7 +21,6 @@ class Login extends Component {
   
     componentWillMount = ()=>{
       this.setState({isLogin: false});
-      alert(this.state.isLogin)
     }
 
     setRedirect = () => {
@@ -39,8 +40,8 @@ class Login extends Component {
       })
     }
 
-    loginOnClick = event => {
-      
+    doLogin = event => {
+      event.preventDefault();
       var username1 = document.getElementById("username").value;
       var password1 = document.getElementById("password").value;
       const headers = {
@@ -51,9 +52,14 @@ class Login extends Component {
         'password': password1
       }
       
-      axios.post('/user/login-user/', data, {headers:headers}).then(
-        res => console.log(res.data)
-      )
+      axios.post('http://127.0.0.1:8000/user/login-user/', data, {headers:headers, withCredentials:true}).then(
+        res => {
+          console.log(res);
+        }
+      ).catch(error => {
+        console.error(error.response);
+        
+      })
     }
 
     renderRedirectTest = () => {
@@ -85,12 +91,12 @@ class Login extends Component {
     
     <div className="loginbox">
         <h2>ورود</h2>
-        <form>
+        <form onSubmit={this.doLogin}>
           <p>نام کاربری</p>
           <input type="text" name="" id="username" placeholder="شماره دانشجویی"></input>
           <p>رمز عبور</p>
           <input type="password" id="password" name="" placeholder="**********"></input>
-          <div>{this.renderRedirectTest()}<input type="button" name="" value="ورود" onClick={this.loginOnClick}></input></div>
+          <div>{this.renderRedirectTest()}<input type="submit" name="" value="ورود"></input></div>
         </form>
     </div>
     <div>

@@ -33,7 +33,6 @@ def get_top_universities(request):
         return JsonResponse(serializer.data, safe=False)
 
 
-@csrf_exempt
 def get_rates(request, university_id):
     """
     Get university rates by its id,

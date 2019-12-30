@@ -30,5 +30,5 @@ class CustomUserReadSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'username', 'first_name', 'last_name',
-            'email', 'is_professor'   
+            'email', 'is_professor'
         ]
