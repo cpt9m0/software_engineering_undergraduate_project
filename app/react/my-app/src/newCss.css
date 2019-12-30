@@ -254,7 +254,7 @@ td {
   background-color: white;
   border-radius: 100px;
   padding: 30px;
-  width: 120px;
+  width: 110px;
   text-align: center;
 }
 
@@ -270,6 +270,24 @@ td {
 }
 
 .UButton:hover {
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+.UniversityButton{
+  background: #7F9EDC;
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  height: 85px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+  border: dotted;
+}
+
+.UniversityButton:hover{
+  
   background-color: #264e86;
   cursor: pointer;
 }

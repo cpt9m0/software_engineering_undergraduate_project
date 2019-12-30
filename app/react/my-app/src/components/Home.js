@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import News from './Layout/News';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -23,8 +24,37 @@ class Home extends Component {
         title: "از پایان‌نامه‌های تحصیلات تکمیلی با موضوع مدیریت سبز حمایت مالی می شود",
         url: "https://www.unp.ir/news/university/university-news/89013"
       }
-    ]
+    ],
+    redirectTopProfessors: false,
+    redirectTopUniversities: false,
   }
+
+
+  setRedirectTopProfessors = () => {
+    this.setState({
+      redirectTopProfessors: true
+    })
+  }
+
+  renderRedirectTopProfessors = () => {
+    if (this.state.redirectTopProfessors) {
+      return <Redirect to='./TopProfessors' />
+    }
+  }
+
+  setRedirectTopUniversities = () => {
+    this.setState({
+      redirectTopUniversities: true
+    })
+  }
+
+  renderRedirectTopUniversities = () => {
+    if (this.state.redirectTopUniversities) {
+      return <Redirect to='./TopUniversities' />
+    }
+  }
+
+
     render() {
         return(
             <div className="Home">
@@ -32,8 +62,8 @@ class Home extends Component {
                 <div className="allBackground">
                   <div className="Tops">
                   <table>
-                    <td className="PButton">اساتید برتر</td>
-                    <td className="UButton">دانشگاه های برتر</td>
+                    <td className="PButton" onClick={this.setRedirectTopProfessors}>{this.renderRedirectTopProfessors()}اساتید برتر</td>
+                    <td className="UButton" onClick={this.setRedirectTopUniversities}>{this.renderRedirectTopUniversities()}دانشگاه های برتر</td>
                   </table>
                   </div>
                   <div className="News">

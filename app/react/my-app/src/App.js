@@ -7,6 +7,7 @@ import RegisterOstad from './components/RegisterOstad';
 import ProfessorRate from './components/ProfessorRate';
 import TopProfessors from './components/TopProfessors';
 import UniversityRate from './components/UniversityRate';
+import TopUniversities from './components/TopUniversities';
 import Addpage from './components/Addpage';
 import Test from './components/Test';
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/Addpage" component={Addpage}/>
         <Route exact path="/Test" component={Test}/>
         <Route exact path="/TopProfessors" component={TopProfessors}/>
+        <Route exact path="/TopUniversities" component={TopUniversities}/>
       </Switch>
     </Router>
     
