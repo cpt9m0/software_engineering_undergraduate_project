@@ -4,7 +4,7 @@ import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
-
+import Comments from './Layout/Comment';
  
 //var jsonData = require('../../file.json');
 
@@ -138,7 +138,9 @@ class ProfessorRate extends React.Component {
                 <button className="submit" onClick={this.setRedirectStudent}><span>تایید</span></button>
             </div>
             
+            
         </div>
+        <Comments/>
       </div>
     );
   }

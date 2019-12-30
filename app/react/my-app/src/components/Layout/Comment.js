@@ -1,131 +1,105 @@
-import React, {Component} from 'react';
-import { Redirect } from 'react-router-dom';
-import $ from 'jquery';
+import React, { Component } from 'react';
+import '../../newCss.css';
 
-class CommentForm extends Component {
-    getInitialState = () => {
-      return {author: '', text: ''};
-    }
-    handleAuthorChange = (e) => {
-      this.setState({author: e.target.value});
-    }
-    handleTextChange = (e) => {
-      this.setState({text: e.target.value});
-    }
-    handleSubmit = (e) => {
-      e.preventDefault();
-      var author = this.state.author.trim();
-      var text = this.state.text.trim();
-      if (!text || !author) {
-        return;
-      }
-      this.props.onCommentSubmit({author: author, text: text});
-      this.setState({author: '', text: ''});
-    }
-    render() {
-      return (
-        <form className="commentForm" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Your name"
-            value={this.state.author}
-            onChange={this.handleAuthorChange}
-          />
-          <input
-            type="text"
-            placeholder="Say something..."
-            value={this.state.text}
-            onChange={this.handleTextChange}
-          />
-          <input type="submit" value="Post" />
-        </form>
-      );
-    }
-  }
-  class CommentBox extends Component{
-    loadCommentsFromServer = () => {
-      $.ajax({
-        url: this.props.url,
-        dataType: 'json',
-        cache: false,
-        success: function(data) {
-          this.setState({data: data});
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error(this.props.url, status, err.toString());
-        }.bind(this)
-      });
-    }
-    handleCommentSubmit = (comment) => {
-      var comments = this.state.data;
-      
-      comment.id = Date.now();
-      var newComments = comments.concat([comment]);
-      this.setState({data: newComments});
-      $.ajax({
-        url: this.props.url,
-        dataType: 'json',
-        type: 'POST',
-        data: comment,
-        success: function(data) {
-          this.setState({data: data});
-        }.bind(this),
-        error: function(xhr, status, err) {
-          this.setState({data: comments});
-          console.error(this.props.url, status, err.toString());
-        }.bind(this)
-      });
-    }
-    getInitialState = () => {
-      return {data: []};
-    }
-    componentDidMount = () => {
-      this.loadCommentsFromServer();
-      setInterval(this.loadCommentsFromServer, this.props.pollInterval);
-    }
-    render = () => {
-      return (
-        <div className="commentBox">
-          <h1>Comments</h1>
-          <CommentList data={this.state.data} />
-          <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+class Comments extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentBoxes: [],
+      commentBoxId: 0
+    };
+  }  
+  addNewCommentBox() {
+    let newCommentBoxId = this.state.commentBoxId + 1;
+    this.setState({commentBoxId: newCommentBoxId});
+    
+    let commentBox = <CommentBox key={this.state.commentBoxId}/>
+    this.setState({commentBoxes: this.state.commentBoxes.concat(commentBox)});
+  }  
+  render() {
+    return (
+      <div className="App">
+        <div className="boxesSpace">
+           {this.state.commentBoxes.map(function(commentBox) {
+             return commentBox;
+           })}
         </div>
-      );
+        <div className="buttonBar">
+          <button onClick={this.addNewCommentBox.bind(this)}>Add new commentbox</button>
+        </div>        
+
+        
+      </div>
+    );
+  }
+}
+
+class CommentBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: [],
+      commentId: 0
+    };
+  }
+  handleOnSubmit(commentText) {
+    let newCommentId = this.state.commentId + 1;
+    this.setState({commentId: newCommentId});
+    
+    let comment = {id:this.state.commentId, author: 'me', text: commentText}
+    this.setState({comments: this.state.comments.concat(comment)});
+  }  
+  render() {
+    return (
+      <div className="CommentBox">
+        <CommentList comments={this.state.comments}/>
+        <CommentInput onCommentSubmit={this.handleOnSubmit.bind(this)}/>
+      </div>
+    );
+  }
+}
+
+
+class CommentInput extends Component {
+  
+  handleOnSubmit(e) {
+    let commentText = this.textInput.value;
+    if (commentText) {
+      this.props.onCommentSubmit(commentText);
+      this.textInput.value = '';
     }
   }
-
-  var data = [
-    {id: 1, author: "Pete Hunt", text: "This is one comment"},
-    {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-  ];
-  class CommentList extends Component{
-    render = () => {
-      var commentNodes = this.props.data.map(function(comment) {
-        return (
-          <Comment author={comment.author} key={comment.id}>
-            {comment.text}
-          </Comment>
-        );
-      });
-      return (
-        <div className="commentList">
-          {commentNodes}
-        </div>
-      );
-    }
+  render() {
+    return (
+      <div className="CommentInput">
+        <input ref={(ref) => this.textInput = ref} type="text"></input>
+        <button onClick={this.handleOnSubmit.bind(this)}>Send</button>
+      </div>
+    );
   }
+}
 
-  class Comment extends Component{
-    render = () => {
-      return (
-        <div className="comment">
-          <h2 className="commentAuthor">
-            {this.props.author}
-          </h2>
-          {this.props.children}
-        </div>
-      );
-    }
+class CommentList extends Component {
+  render() {
+    let liComments = this.props.comments.map(function(comment) {
+                       return <Comment key={comment.id} author={comment.author} text={comment.text}/>;
+                     })
+    return (
+      <ul className="CommentList">
+        {liComments}
+      </ul>
+    );
   }
+}
 
-export default CommentForm;
+class Comment extends Component {
+  render() {
+    return (
+      <li key={this.props.id} className="Comment">
+        {this.props.author}: {this.props.text}
+      </li>
+    );
+  }
+}
+
+export default Comments;

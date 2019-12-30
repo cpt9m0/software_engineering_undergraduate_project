@@ -179,3 +179,26 @@ a{
   background-color: red;
   text-align: center;
 }
+
+.App {
+  margin: 0 10%;
+  text-align: center;
+}
+
+.boxesSpace {
+  height: 500px;
+  border: 1px solid;
+  overflow: auto;
+}
+
+.CommentBox {
+  border: solid 1px;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  float: left;
+}
+
+ul {
+  list-style: none;
+}
