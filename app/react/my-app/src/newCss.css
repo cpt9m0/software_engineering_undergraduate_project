@@ -203,6 +203,14 @@ a{
   height: 30px;
 }
 
+#commentBut:hover {
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 75px;
+  height: 30px;
+}
+
 .CommentBox {
   border: dotted 3px;
   background-color: #7F9EDC;
@@ -335,6 +343,7 @@ ul {
   margin: 0 auto;
   border-radius: 50px;
 }
+
 
 .button1 {
   background-color: #264e86;

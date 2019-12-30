@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login';
 import Home from './components/Home';
+import AboutUs from './components/AboutUs';
 import Register from './components/Register';
 import Logintoregister from './components/Logintoregister';
 import RegisterOstad from './components/RegisterOstad';
@@ -15,6 +16,7 @@ import Test from './components/Test';
 import './App.css';
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import Comments from './components/Layout/Comment';
+import ContactUs from './components/ContactUs';
 
 function App() {
   
@@ -35,6 +37,8 @@ function App() {
         <Route exact path="/TopUniversities" component={TopUniversities}/>
         <Route exact path="/ViewProfessor" component={ViewProfessor}/>
         <Route exact path="/ViewUniversity" component={ViewUniversity}/>
+        <Route exact path="/AboutUs" component={AboutUs}/>
+        <Route exact path="/ContactUs" component={ContactUs}/>
       </Switch>
     </Router>
     

@@ -10,7 +10,9 @@ class Header extends Component {
 
     state = {
         redirectLoginReg: false,
-        redirectHome: false
+        redirectHome: false,
+        redirectAbout:false,
+        redirectContact:false
       } 
     
         setRedirectLoginReg = () => {
@@ -36,6 +38,30 @@ class Header extends Component {
               return <Redirect to='./' />
             }
           }
+        
+          setRedirectAbout = () => {
+            this.setState({
+              redirectAbout: true
+            })
+          }
+  
+          renderRedirectAbout = () => {
+            if (this.state.redirectAbout) {
+              return <Redirect to='./AboutUs' />
+            }
+          }
+
+          setRedirectContact = () => {
+            this.setState({
+              redirectContact: true
+            })
+          }
+  
+          renderRedirectContact = () => {
+            if (this.state.redirectContact) {
+              return <Redirect to='./ContactUs' />
+            }
+          }
 
 
     render() {
@@ -50,10 +76,12 @@ class Header extends Component {
             <div className="homeButton" onClick={this.setRedirectHome}>
             {this.renderRedirectHome()}   
             </div>
-            <div className="contactButton">
+            <div className="contactButton" onClick={this.setRedirectContact}>
+            {this.renderRedirectContact()} 
                 تماس با ما       
             </div>
-            <div className="aboutButton">
+            <div className="aboutButton" onClick={this.setRedirectAbout}>
+            {this.renderRedirectAbout()} 
                 درباره سایت    
             </div>
             <form className="searchBar">
