@@ -1,0 +1,685 @@
+.App {
+  text-align: center;
+}
+
+body{
+  background-image: url('images/uni.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height:100%;
+  padding: 0;
+  margin: 0;
+}
+
+.App p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 120%;
+  color: #264e86;
+}
+
+
+.App h1{
+  color: #151A3F;
+  margin: 0;
+  padding: 150px;
+  font-weight: bold;
+  font-size: 300%;
+}
+
+.App h2{
+  transform: translate(0%,-85%);
+}
+
+.App-header {
+  background: #264e86 ;
+  min-height: 81.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+ 
+}
+
+.loginbox
+{
+  --borderWidth: 5px;
+  border-radius: var(--borderWidth);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:60%;
+    left: 50%;
+    width: 400px;
+    height: 375px;
+    padding: 50px 80px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.loginbox:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #7F9EDC, #5779BE, #4B71BD, #7393D5, #7393D5 , #4B71BD, #5779BE, #7F9EDC);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 5s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.loginbox h2{
+    margin: 0;
+    padding: -10px 20px;
+    color: #070e18;
+    text-align: center;
+    font-size: 225%;
+}
+
+.loginbox p{
+    margin: 0;
+    padding:0;
+    font-weight: bold;
+    color: #151A3F;
+}
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginbox input[type = "text"],
+.loginbox input[type = "password"]{
+  text-align: center;
+    border: none;
+    border-bottom: 2px solid #000000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000000;
+    font-size: 20px;
+}
+::placeholder{
+    color: rgba(166, 230, 255, 0.986);
+}
+
+.loginbox input[type = "text"]:hover {
+  border-color: rgb(136, 0, 0);
+}
+.loginbox input[type = "password"]:hover{
+ border-color: rgb(136, 0, 0);
+}
+
+.loginbox input[type = "submit"]{
+    border: none;
+    outline: none;
+    height:  45px;
+    width: 150px;
+    color: #fff;
+    font-size: 16px;
+    background: #151A3F;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.loginbox input[type = "submit"]:hover
+{
+    background: #168d0c;
+    color: #fff;
+}
+.loginbox a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.button {
+  transform: translate(0%,850%);
+  margin: 0;
+  display: inline-block;
+  border-radius: 40px;
+  background-color: #151A3F;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px ;
+  width: 185px;
+  transition: all 0.5s;
+  cursor: pointer;
+ 
+}
+
+.button:hover{
+  background: #168d0c;
+  color: #fff;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.registerbox{
+  --borderWidth: 5px;
+  border-radius: var(--borderWidth);
+  position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 525px;
+    height: 575px;
+    padding: 50px 80px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.registerbox:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #7F9EDC, #5779BE, #4B71BD, #7393D5, #7393D5 , #4B71BD, #5779BE, #7F9EDC);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.registerbox h2{
+  margin: 0;
+  padding: 20px 20px;
+  color: #000;
+  text-align: center;
+  font-size: 185%;
+  
+}
+
+.registerbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #151A3F;
+}
+.registerbox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.registerbox input[type = "text"],
+.registerbox input[type = "password"]{
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #000000;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #000;
+  font-size: 16px;
+}
+
+.registerbox input[type = "text"]:hover {
+  border-color:  rgb(136, 0, 0);
+}
+.registerbox input[type = "password"]:hover{
+ border-color: rgb(136, 0, 0);
+}
+::placeholder{
+  color: rgba(0, 0, 0, 0.5);
+}
+.registerbox input[type = "submit"]{
+  border: none;
+  outline: none;
+  height:  40px;
+  width: 175px;
+  color: #fff;
+  font-size: 16px;
+  background: #151A3F;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.registerbox input[type = "submit"]:hover
+{
+  background: #168d0c;
+  color: #fff;
+}
+
+.buttonStudent{
+  margin-bottom: 50px;
+  display: inline-block;
+  border-radius: 40px;
+  background-color: #151A3F;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+  padding: 30px;
+  width: 255px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.buttonStudent span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonStudent span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonStudent:hover{
+  background: #168d0c;
+  color: #fff;
+}
+
+.buttonStudent:hover span {
+  padding-right: 25px;
+}
+
+.buttonStudent:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.buttonOstad{
+  margin: 0;
+  display: inline-block;
+  border-radius: 40px;
+  background-color: #151A3F;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 35px;
+  padding: 30px;
+  width: 255px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.buttonOstad:hover{
+  background: #168d0c;
+  color: #fff;
+}
+
+.buttonOstad span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonOstad span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  
+}
+
+.buttonOstad:hover span {
+  padding-right: 25px;
+}
+
+.buttonOstad:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.registerOstadbox{
+  position: absolute;
+  --borderWidth: 5px;
+  border-radius: var(--borderWidth);
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 525px;
+    height: 725px;
+    padding: 50px 80px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.registerOstadbox:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #7F9EDC, #5779BE, #4B71BD, #7393D5, #7393D5 , #4B71BD, #5779BE, #7F9EDC);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.registerOstadbox h2{
+  margin: 0;
+  padding: -10px 20px;
+  color: #000;
+  text-align: center;
+  font-size: 185%;
+  
+}
+
+.registerOstadbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #151A3F;
+}
+.registerOstadbox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.registerOstadbox input[type = "text"],
+.registerOstadbox input[type = "password"]{
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid #000000;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #000;
+  font-size: 20px;
+}
+
+.registerOstadbox input[type = "text"]:hover {
+  border-color: rgb(136, 0, 0);
+}
+.registerOstadbox input[type = "password"]:hover{
+ border-color:  rgb(136, 0, 0);
+}
+::placeholder{
+  color: rgba(0, 0, 0, 0.5);
+}
+.registerOstadbox input[type = "submit"]{
+  border: none;
+  outline: none;
+  height:  40px;
+  width: 175px;
+  color: #fff;
+  font-size: 16px;
+  background: #151A3F;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.registerOstadbox input[type = "submit"]:hover
+{
+  background: #168d0c;
+  color: #fff;
+}
+
+.searchBar input[type=text] {
+  transform: translate(0%,15%);
+  text-align: center;
+    width: 325px;
+    box-sizing: border-box;
+    border: 5px solid #151A3F;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    background-image: url('images/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    position: relative;
+}
+
+.searchBar input[type=text]:focus {
+  width: 50%;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #264e86;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #f4f4f4;
+  color: black;
+}
+
+.user
+{
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(-100px/120);
+    left: calc(40% - 50px);
+}
+
+
+.userr
+{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: absolute;
+   transform: translate(-50%,0%);
+}
+
+
+.addUnibtn{
+ margin: 50px 50px;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.addOstadbtn{
+  margin: 50px 50px;
+  
+  display: flex;;
+  align-items: center;
+ 
+}
+
+.addCoursebtn{
+  margin: 50px 50px;
+  
+  display: flex;;
+  align-items: center;
+ 
+}
+
+.addDepartmentbtn{
+  margin: 50px 50px;
+  
+  display: flex;;
+  align-items: center;
+ 
+}
+
+.allback{
+  
+  height: 100% !important;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: rgba(240, 248, 255, 0.9);
+  overflow-y: auto;
+  z-index: -1;
+  text-align: right;
+  border-radius: 20px;
+}
+
+
+#myDIV{
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+#myDIV2{
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: rgb(102, 214, 145);
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+#myDIV3{
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: rgb(167, 214, 91);
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+#myDIV4{
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  background-color: rgb(207, 141, 79);
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+.addForm{
+    padding: 50px 80px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.addForm input{
+  width: 30%;
+  margin-bottom: 20px;
+}
+.addForm input[type = "text"]
+{
+text-align: center;
+  border: none;
+  border-bottom: 1.5px solid #000000;
+  background: transparent;
+  outline: none;
+  height: 20px;
+  color: #000000;
+  font-size: 20px;
+}
+::placeholder{
+  color: rgba(166, 230, 255, 0.986);
+}
+
+.addForm input[type = "text"]:hover {
+border-color: rgb(136, 0, 0);
+}
+
+.addForm input[type = "submit"]{
+  border: none;
+  outline: none;
+  height:  50px;
+  width: 90px;
+  color: #fff;
+  font-size: 16px;
+  background: #151A3F;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.addForm input[type = "submit"]:hover
+{
+  background: #168d0c;
+  color: #fff;
+}

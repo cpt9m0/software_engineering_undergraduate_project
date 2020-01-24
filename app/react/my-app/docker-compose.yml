@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    image: ostad_rate_fe
+    container_name: front_end_ostad_rate
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+ 
+
+  

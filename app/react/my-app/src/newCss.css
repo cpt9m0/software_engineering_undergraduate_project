@@ -1,0 +1,355 @@
+.header {
+
+    background: #264e86;
+    position: relative;
+    height: 200px;
+    text-align: center;
+    z-index: 5;
+  }
+  
+  .image{
+    margin-top: -40px;
+    margin-left: 100px;
+    position: relative;
+  }
+
+  .allBackground{
+    position: relative;
+    height: 100% !important;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 30px;
+    background-color: rgba(240, 248, 255, 0.9);
+    overflow-y: auto;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  .loginRegButton {
+    position: relative;
+    float: right;
+    margin: 10px;
+    background-color: aliceblue;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .loginRegButton:hover {
+    background-color: #7F9EDC;
+  }
+
+  .rateButton {
+    background-color: #7F9EDC;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+    margin: 40px auto;
+    position: relative;
+    top: 200px;
+  }
+
+  .rateButton:hover {
+    background-color: #264e86;
+  }
+
+  .infoPart {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .ratePart {
+    height: 600px;
+    position: relative;
+    text-align: center;
+    border: dotted;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 50%;
+    overflow-y: auto;
+    background-color: #7F9EDC;
+  }
+
+  table {
+    margin: auto;
+  }
+  
+  td {
+    padding: 12px;
+  }
+
+
+  .submit {
+    border: none;
+    outline: none;
+    height:  45px;
+    width: 150px;
+    color: #fff;
+    font-size: 16px;
+    background: #151A3F;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .submit:hover {
+    background: #168d0c;
+    color: #fff;
+  }
+
+  .homeButton {
+    color: aliceblue;
+    background-image: url('images/home2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 20px;
+    height: 22px;
+    margin: 10px auto;
+    position: absolute;
+    top: 0px;
+    right: 140px;
+  }
+
+.contactButton {
+  background-color: aliceblue;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 8%;
+  margin: 40px auto;
+  position: absolute;
+  top: 115px;
+}
+
+.contactButton:hover {
+background-color: #7F9EDC;
+}
+
+.aboutButton {
+  background-color: aliceblue;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  width: 8%;
+  margin: 40px auto;
+  position: absolute;
+  left: 10%;
+  top: 115px;
+}
+
+.aboutButton:hover {
+background-color: #7F9EDC;
+}
+
+.newsItem{
+  background: #7F9EDC;
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+  height: 150px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.newsItem:hover{
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.Test {
+  position: absolute;
+  width: 500px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  background-color: red;
+  text-align: center;
+}
+
+.App {
+  margin: 0 10%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.boxesSpace {
+  height: 500px;
+  border-radius: 20px;
+  background-color: aliceblue;
+  border: 1px solid;
+  overflow: auto;
+}
+
+#commentBut {
+  background-color: #264e86;
+  border-radius: 20px;
+  width: 70px;
+  height: 30px;
+}
+
+#commentBut:hover {
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 75px;
+  height: 30px;
+}
+
+.CommentBox {
+  border: dotted 3px;
+  background-color: #7F9EDC;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  float: left;
+}
+
+ul {
+  list-style: none;
+}
+
+.ProfessorButton{
+  background: #7F9EDC;
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  height: 85px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+  border: dotted;
+}
+
+.ProfessorButton:hover{
+  
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+#But {
+  background-color: #264e86;
+  border-radius: 100px;
+  padding: 30px;
+}
+
+#score{
+  background-color: #168d0c;
+  border-radius: 40px;
+}
+
+.News {
+  background-color:lightblue;
+  margin: 20px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.Tops{
+  background-color:lightblue;
+  margin: 20px;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.PButton {
+  background-color: white;
+  border-radius: 100px;
+  padding: 30px;
+  width: 110px;
+  text-align: center;
+}
+
+.UButton {
+  background-color: white;
+  border-radius: 100px;
+  padding: 30px;
+}
+
+.PButton:hover {
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+.UButton:hover {
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+.UniversityButton{
+  background: #7F9EDC;
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  height: 85px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+  border: dotted;
+}
+
+.UniversityButton:hover{
+  
+  background-color: #264e86;
+  cursor: pointer;
+}
+
+#scorep{
+  background-color: #264e86;
+  border-radius: 40px;
+  width: 20%;
+  height: 50px;
+  margin: 0 auto;
+  left: 40%;
+}
+
+#plikes{
+  background-color: #168d0c;
+  float: left;
+  border-radius: 40px;
+  padding: 20px;
+  margin: 40px;
+}
+
+#pdislikes {
+  background-color: red;
+  padding: 20px;
+  border-radius: 40px;
+  float: right;
+  margin: 40px;
+}
+
+.comments {
+  background-color: #264e86;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+
+.button1 {
+  background-color: #264e86;
+  border-radius: 30px;
+}
+
+.button1:hover {
+  background-color: #168d0c;
+}

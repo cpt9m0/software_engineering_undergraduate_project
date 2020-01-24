@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.navigation {
+  background-color: #264e86;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  height: 20%;
+  width: 100%;
+  text-align: center;
+}
+
+.inactive {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+}
+
+.inactive:hover {
+  background: #0074e4 ;
+}
+
+.active:hover {
+  background: #0074e4 ;
+}
+
+.active {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #000000;
+  text-decoration: none;
+}
+
+.header {
+  background: #0074e4;
+  position: relative;
+  height: 200px;
+  text-align: center;
+}
+
+.home {
+  text-align: center;
+}
+
+.about {
+  text-align: center;
+}
+
+.contact {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+}
+
+#ostad-rate {
+  text-align: center;
+  padding: 90px;
+}
