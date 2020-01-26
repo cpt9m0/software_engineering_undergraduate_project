@@ -29,13 +29,6 @@ class ViewUniversity extends React.Component {
     constructor() {
         super();
      
-        this.state = {
-          overall_score: 1,
-          name: "",
-          university: "",
-          likes: "",
-          dislikes: ""
-        };
       }
 
       state = {
@@ -60,35 +53,16 @@ class ViewUniversity extends React.Component {
       //  )
       //}
   render() {
-    const { overall_score } = this.state;
-    const { name } = this.state;
-    const { university } = this.state;
-    const { likes } = this.state;
-    const { dislikes } = this.state;
-    const jsonData = {
-        overall_score: 6.8,
-        university: "علم و صنعت",
-        phone: "(9821+)77451500-9",
-        webpage: "http://www.iust.ac.ir/",
-        postalCode: "13114-16846",
-        address: " ایران، تهران، رسالت، خیابان هنگام، خیابان دانشگاه، دانشگاه علم و صنعت ایران",
-        likes: "6",
-        dislikes: "3"
-    }
     
     return (                
       <div>
         <Header/> 
         <div className="allBackground">
-            <h2>دانشگاه: {jsonData.university}</h2>
-            <h1 id="scorep">امتیاز {jsonData.overall_score}</h1>
-            <h1 id="plikes">likes: {jsonData.likes}</h1>
-            <h1 id="pdislikes">dislikes: {jsonData.dislikes}</h1>
+            <h2>دانشگاه: {this.props.location.state.university}</h2>
+            <h1 id="scorep">امتیاز {this.props.location.state.overall_score}</h1>
+            <h1 id="plikes">likes: {this.props.location.state.likes}</h1>
+            <h1 id="pdislikes">dislikes: {this.props.location.state.dislikes}</h1>
             <hr/>
-            <h3>شماره تماس: {jsonData.phone}</h3>
-            <h3>کد پستی: {jsonData.postalCode}</h3>
-            <h4>سایت: {jsonData.webpage}</h4>      
-            <p>نشانی: {jsonData.address}</p>
             <div>{this.renderRedirectUniversityRate()}<button className="buttonStudent" onClick={this.setRedirectUniversityRate}><span>ارزیابی دانشگاه</span></button></div>
             <div className="comments">
                 Comments
@@ -99,4 +73,9 @@ class ViewUniversity extends React.Component {
   }
 }
 
+
+//<h3>شماره تماس: {jsonData.phone}</h3>
+//<h3>کد پستی: {jsonData.postalCode}</h3>
+//<h4>سایت: {jsonData.webpage}</h4>      
+//<p>نشانی: {jsonData.address}</p>
 export default ViewUniversity;

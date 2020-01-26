@@ -6,7 +6,13 @@ import  '../../newCss.css';
 export class TopUniversityItem extends Component {
 
     state = {
-        redirectUniversity:false
+        redirectUniversity:false,
+        id: this.props.topUniversity.id, 
+        university: this.props.topUniversity.university, 
+        likes: this.props.topUniversity.likes, 
+        dislikes: this.props.topUniversity.dislikes, 
+        overall_score: this.props.topUniversity.overall_score , 
+        comment: this.props.topUniversity.comment
       } 
 
         setRedirectUniversity = () => {
@@ -17,7 +23,15 @@ export class TopUniversityItem extends Component {
 
         renderRedirectUniversity = () => {
           if (this.state.redirectUniversity) {
-            return <Redirect to='./ViewUniversity' />
+            return <Redirect to={{pathname:'./ViewUniversity',
+                state: {
+                    id: this.state.id,
+                    likes: this.state.likes,
+                    dislikes: this.state.dislikes,
+                    university: this.state.university,
+                    overall_score: this.state.overall_score,
+                    comment: this.state.comment
+                } }}/>
           }
         }
 

@@ -53,23 +53,6 @@ class ViewProfessor extends React.Component {
       //  )
       //}
   render() {
-    const { overall_score } = this.state;
-    const { name } = this.state;
-    const { university } = this.state;
-    const { likes } = this.state;
-    const { dislikes } = this.state;
-    const jsonData = {
-        overall_score: 8.8,
-        name: "مینایی",
-        university: "علم و صنعت",
-        email: "b_minaei-at-iust.ac.ir",
-        phone: "+98-21-73225330",
-        fax: "+98-21-73021616",
-        address: " تهران، نارمک، دانشگاه علم و صنعت، دانشکده مهندسی کامپیوتر، اتاق 309",
-        webpage: "http://webpages.iust.ac.ir/b_minaei",
-        likes: "10",
-        dislikes: "3"
-    }
     
     return (                
       <div>
