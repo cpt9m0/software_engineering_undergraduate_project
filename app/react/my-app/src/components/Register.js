@@ -58,6 +58,7 @@ class Register extends Component {
 
   render() {
     return (
+
     <div className="App">
        <img src= {logo} className="userr"></img>
 <div className="sidebar">
@@ -75,12 +76,24 @@ class Register extends Component {
         <form onSubmit={this.doRegister}>
           <p>شماره دانشجویی</p>
           <input type="text" name="" id="username" placeholder="شماره دانشجویی خود را وارد کنید"></input>
+          <button className="selectUni"><span>دانشگاه</span></button>
+                    <div className="dropdown">
+                       <button class="selectUni2">
+                      </button>
+                     <div className="dropdown-content">
+                     <a href="#">دانشگاه علم و صنعت</a>
+                    <a href="#">دانشگاه تهران</a>
+                    <a href="#">دانشگاه امیرکبیر</a>
+                    </div>
+                    </div>
           <p>ایمیل</p>
           <input type="email" name="" id="email" placeholder="ایمیل خود را وارد کنید"></input>
+          
           <p>رمز عبور</p>
           <input type="password" name="" id="password1" placeholder="**********"></input>
           <p>تایید رمز عبور</p>
           <input type="password" name="" id="password2" placeholder="**********"></input>
+          
           <input type="submit" name="" value="تایید"></input>
         </form>
         </div> 
