@@ -4,6 +4,7 @@ import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 import TopUniversity from './Layout/TopUniversity';
+import axios from 'axios';
  
 //var jsonData = require('../../file.json');
 
@@ -31,49 +32,28 @@ class TopUniversities extends React.Component {
     super();
   }
 
+  get_data = () => {
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    let HOST = 'http://127.0.0.1:8000';
+    axios.get(`${HOST}/university/get-top-universities/`, {}, {headers:headers}).then(
+      res => {
+        var universities = res.data;
+        this.setState({universitiesList: universities})
+      }
+    )
+  }
 
   state = {
-    universitiesList: [
-      {
-        id: "3",
-        university: "Sharif",
-        likes: "15",
-        dislikes: "1",
-        overall_score: "5",
-        comment: "gooood"
-      },
-      {
-        id: "4",
-        university: "IUST",
-        likes: "10",
-        dislikes: "2",
-        overall_score: "7",
-        comment: "bad"
-      },
-      {
-        id: "5",
-        university: "Amirkabir",
-        likes: "17",
-        dislikes: "4",
-        overall_score: "9",
-        comment: "not bad"
-      }
-    ]
-  } 
+    universitiesList: []
+  }
 
-      //componentDidMount() {
-      //  axios.get('/user/get-top-professors', data, {headers:headers}).then(
-      //    res => console.log(res.data)
-      //  )
-      //}
+  componentWillMount(){        
+    this.get_data();
+  }
+
   render() {
-    const jsonData = {
-        id: 1,
-        university: "علم و صنعت",
-        likes: "6",
-        dislikes: "3",
-        score: "6.8"
-      }
     
     return (                
       <div>

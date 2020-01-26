@@ -20,7 +20,7 @@ class LocationSerializer(serializers.ModelSerializer):
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = University
-        fields = ['id', 'name', 'location', 'image']
+        fields = ['name', 'overall_score', 'location', 'image']
 
 
 class DepartmentSerializer(serializers.ModelSerializer):

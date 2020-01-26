@@ -45,4 +45,9 @@ urlpatterns = [
         Professor.get_rates,
         name='get_rates'
         ),
+    path(
+        'get-avg-score/<int:professor_id>/',
+        Professor.get_avg_score,
+        name='avg_score'
+    )
 ]

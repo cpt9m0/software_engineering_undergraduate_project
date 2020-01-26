@@ -75,6 +75,28 @@ def get_top_professors(request):
 
 
 @csrf_exempt
+def get_avg_score(request, professor_id):
+    """
+    Get Avg. of all rate scores for a professor
+    """
+    try:
+        professor = User.objects.get(username=professor_id)
+    except User.DoesNotExist:
+        return HttpResponse(status=404)
+    
+    rates = ProfessorRate.objects.filter(professor=professor)
+    avg_score = 0
+    counter = 0
+    for rate in rates:
+        avg_score += rate.overall_score
+        counter+=1
+    avg_score = avg_score / counter
+    
+    return JsonResponse({"data": avg_score})
+
+
+
+@csrf_exempt
 def get_courses(request, professor_id):
     """
     List all courses of a professor with professor id,

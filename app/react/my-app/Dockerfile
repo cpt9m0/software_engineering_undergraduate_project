@@ -4,6 +4,6 @@ RUN mkdir my-app
 WORKDIR '/my-app'
 
 COPY package.json .
-RUN npm install
 COPY . .
+RUN npm install
 CMD ["npm", "start"]

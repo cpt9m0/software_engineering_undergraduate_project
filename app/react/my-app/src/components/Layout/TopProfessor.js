@@ -6,7 +6,7 @@ class TopProfessor extends Component {
 
     render() {
         return this.props.professorsList.map((topProfessor) => (
-            <TopProfessorItem id = {topProfessor.id} topProfessor = {topProfessor}/>
+            <TopProfessorItem id = {topProfessor.username} topProfessor = {topProfessor}/>
         ));
     }
 }

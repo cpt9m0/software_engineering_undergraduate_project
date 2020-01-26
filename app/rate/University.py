@@ -27,7 +27,7 @@ def get_top_universities(request):
     if request.method == 'GET':
         top_rates = UniversityRate.objects.all().order_by('-overall_score')
         top_universities = University.objects.filter(
-            id__in=[rate.university.id for rate in top_rates]
+            name__in=[rate.university.name for rate in top_rates]
             )
         serializer = UniversitySerializer(top_universities, many=True)
         return JsonResponse(serializer.data, safe=False)
