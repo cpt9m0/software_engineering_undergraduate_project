@@ -7,6 +7,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=120, blank=True, null=True)
     last_name = models.CharField(max_length=120, blank=True, null=True)
+    university = models.ForeignKey('rate.University', on_delete=models.CASCADE)
     profile_photo = models.ImageField(
         upload_to='media/profiles',
         blank=True,
