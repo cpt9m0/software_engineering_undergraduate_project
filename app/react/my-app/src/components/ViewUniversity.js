@@ -32,7 +32,9 @@ class ViewUniversity extends React.Component {
       }
 
       state = {
-        redirectUniversityRate:false
+        redirectUniversityRate:false,
+        id: this.props.location.state.id, 
+        university: "a"
       } 
 
         setRedirectUniversityRate = () => {
@@ -43,7 +45,12 @@ class ViewUniversity extends React.Component {
 
         renderRedirectUniversityRate = () => {
           if (this.state.redirectUniversityRate) {
-            return <Redirect to='./UniversityRate' />
+            return <Redirect to={{pathname: './UniversityRate',
+            state: {
+              id: this.state.id,
+              university: this.state.university
+            }
+           }} />
           }
         }
 

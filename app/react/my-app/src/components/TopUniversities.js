@@ -39,14 +39,14 @@ class TopUniversities extends React.Component {
         university: "Sharif",
         likes: "15",
         dislikes: "1",
-        overall_score: "10",
+        overall_score: "5",
         comment: "gooood"
       },
       {
         id: "4",
         university: "IUST",
         likes: "10",
-        dislikes: "5",
+        dislikes: "2",
         overall_score: "7",
         comment: "bad"
       },
@@ -54,7 +54,7 @@ class TopUniversities extends React.Component {
         id: "5",
         university: "Amirkabir",
         likes: "17",
-        dislikes: "5",
+        dislikes: "4",
         overall_score: "9",
         comment: "not bad"
       }

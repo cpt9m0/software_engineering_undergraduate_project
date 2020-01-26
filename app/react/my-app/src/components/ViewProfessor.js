@@ -30,9 +30,12 @@ class ViewProfessor extends React.Component {
     constructor() {
         super();
       }
-
+      
       state = {
-        redirectProfessorRate:false
+        redirectProfessorRate:false,
+        id: this.props.this.props.location.state.id, 
+        first_name: "a",
+        last_name: "b"
       } 
 
         setRedirectProfessorRate = () => {
@@ -43,7 +46,13 @@ class ViewProfessor extends React.Component {
 
         renderRedirectProfessorRate = () => {
           if (this.state.redirectProfessorRate) {
-            return <Redirect to='./ProfessorRate' />
+            return <Redirect to={{pathname: './ProfessorRate',
+            state: {
+              id: this.state.id,
+              first_name: this.state.first_name,
+              last_name:this.state.last_name
+            }
+           }} />
           }
         }
 
@@ -66,7 +75,7 @@ class ViewProfessor extends React.Component {
             <hr/>
             <div>{this.renderRedirectProfessorRate()}<button className="buttonStudent" onClick={this.setRedirectProfessorRate}><span>ارزیابی استاد</span></button></div>
             <div className="comments">
-                Comments
+                Rates By Regular Students
             </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ class TopProfessors extends React.Component {
             university: "IUST",
             likes: "10",
             dislikes: "1",
-            overall_score: "10",
+            overall_score: "5",
             comment: "gooood"
           },
           {
@@ -52,7 +52,7 @@ class TopProfessors extends React.Component {
             university: "IUST",
             likes: "15",
             dislikes: "2",
-            overall_score: "10",
+            overall_score: "4",
             comment: "gooood"
           }
         ]
