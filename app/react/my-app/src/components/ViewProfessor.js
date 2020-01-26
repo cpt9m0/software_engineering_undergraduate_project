@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
+import TopProfessorItem from './Layout/TopProfessorItem';
  
 //var jsonData = require('../../file.json');
 
@@ -28,18 +29,13 @@ class ViewProfessor extends React.Component {
     
     constructor() {
         super();
-     
-        this.state = {
-          overall_score: 1,
-          name: "",
-          university: "",
-          likes: "",
-          dislikes: ""
-        };
       }
-
+      
       state = {
-        redirectProfessorRate:false
+        redirectProfessorRate:false,
+        id: this.props.this.props.location.state.id, 
+        first_name: "a",
+        last_name: "b"
       } 
 
         setRedirectProfessorRate = () => {
@@ -50,7 +46,13 @@ class ViewProfessor extends React.Component {
 
         renderRedirectProfessorRate = () => {
           if (this.state.redirectProfessorRate) {
-            return <Redirect to='./ProfessorRate' />
+            return <Redirect to={{pathname: './ProfessorRate',
+            state: {
+              id: this.state.id,
+              first_name: this.state.first_name,
+              last_name:this.state.last_name
+            }
+           }} />
           }
         }
 
@@ -60,47 +62,32 @@ class ViewProfessor extends React.Component {
       //  )
       //}
   render() {
-    const { overall_score } = this.state;
-    const { name } = this.state;
-    const { university } = this.state;
-    const { likes } = this.state;
-    const { dislikes } = this.state;
-    const jsonData = {
-        overall_score: 8.8,
-        name: "مینایی",
-        university: "علم و صنعت",
-        email: "b_minaei-at-iust.ac.ir",
-        phone: "+98-21-73225330",
-        fax: "+98-21-73021616",
-        address: " تهران، نارمک، دانشگاه علم و صنعت، دانشکده مهندسی کامپیوتر، اتاق 309",
-        webpage: "http://webpages.iust.ac.ir/b_minaei",
-        likes: "10",
-        dislikes: "3"
-    }
     
     return (                
       <div>
         <Header/> 
         <div className="allBackground">
-            <h1>استاد {jsonData.name}</h1>
-            <h1 id="scorep">امتیاز {jsonData.overall_score}</h1>
-            <h1 id="plikes">likes: {jsonData.likes}</h1>
-            <h1 id="pdislikes">dislikes: {jsonData.dislikes}</h1>
-            <h2>دانشگاه: {jsonData.university}</h2>
+            <h1>استاد {this.props.location.state.first_name} {this.props.location.state.last_name}</h1>
+            <h1 id="scorep">امتیاز {this.props.location.state.overall_score}</h1>
+            <h1 id="plikes">likes: {this.props.location.state.likes}</h1>
+            <h1 id="pdislikes">dislikes: {this.props.location.state.dislikes}</h1>
+            <h2>دانشگاه: {this.props.location.state.university}</h2>
             <hr/>
-            <h3>ایمیل: {jsonData.email}</h3>
-            <h3>شماره تماس: {jsonData.phone}</h3>
-            <h3>فکس: {jsonData.fax}</h3>
-            <h4>سایت: {jsonData.webpage}</h4>      
-            <p>نشانی: {jsonData.address}</p>
             <div>{this.renderRedirectProfessorRate()}<button className="buttonStudent" onClick={this.setRedirectProfessorRate}><span>ارزیابی استاد</span></button></div>
             <div className="comments">
-                Comments
+                Rates By Regular Students
             </div>
         </div>
       </div>
     );
   }
 }
+
+
+//<h3>ایمیل: {jsonData.email}</h3>
+//<h3>شماره تماس: {jsonData.phone}</h3>
+//<h3>فکس: {jsonData.fax}</h3>
+//<h4>سایت: {jsonData.webpage}</h4>      
+//<p>نشانی: {jsonData.address}</p>
 
 export default ViewProfessor;

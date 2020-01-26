@@ -62,7 +62,7 @@
   }
 
   .ratePart {
-    height: 600px;
+    height: 700px;
     position: relative;
     text-align: center;
     border: dotted;
@@ -352,4 +352,8 @@ ul {
 
 .button1:hover {
   background-color: #168d0c;
+}
+
+.cmnt {
+  width: 1000px;
 }
