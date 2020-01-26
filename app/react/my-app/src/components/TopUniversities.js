@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
+import TopUniversity from './Layout/TopUniversity';
  
 //var jsonData = require('../../file.json');
 
@@ -26,34 +27,39 @@ var data = [
 
 class TopUniversities extends React.Component {
     
-    constructor() {
-        super();
-     
-        this.state = {
-          overall_score: 1,
-          name: "",
-          likes: "",
-          dislikes: ""
-        };
+  constructor() {
+    super();
+  }
+
+
+  state = {
+    universitiesList: [
+      {
+        id: "3",
+        university: "Sharif",
+        likes: "15",
+        dislikes: "1",
+        overall_score: "10",
+        comment: "gooood"
+      },
+      {
+        id: "4",
+        university: "IUST",
+        likes: "10",
+        dislikes: "5",
+        overall_score: "7",
+        comment: "bad"
+      },
+      {
+        id: "5",
+        university: "Amirkabir",
+        likes: "17",
+        dislikes: "5",
+        overall_score: "9",
+        comment: "not bad"
       }
-
-
-      state = {
-        redirectUniversity:false
-      } 
-
-        setRedirectUniversity = () => {
-          this.setState({
-            redirectUniversity: true
-          })
-        }
-
-        renderRedirectUniversity = () => {
-          if (this.state.redirectUniversity) {
-            return <Redirect to='./ViewUniversity' />
-          }
-        }
-
+    ]
+  } 
 
       //componentDidMount() {
       //  axios.get('/user/get-top-professors', data, {headers:headers}).then(
@@ -73,19 +79,7 @@ class TopUniversities extends React.Component {
       <div>
         <Header/> 
         <div className="allBackground">
-        <div> {this.renderRedirectUniversity()}
-            <div className="UniversityButton" onClick={this.setRedirectUniversity}>
-                <table>
-                    <tr>
-                        <td id="But">دانشگاه {jsonData.university}</td>
-                        <td id="But">likes: {jsonData.likes}</td>
-                        <td id="But">dislikes: {jsonData.dislikes}</td>
-                        <td id="score">امتیاز {jsonData.score}</td>
-                    </tr>
-
-                </table>
-            </div>
-        </div>    
+          <TopUniversity universitiesList={this.state.universitiesList}/>
         </div>
       </div>
     );
