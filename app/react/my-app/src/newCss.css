@@ -114,7 +114,7 @@
     margin: 10px auto;
     position: absolute;
     top: 0px;
-    right: 140px;
+    left: -1375px;
   }
 
 .contactButton {
@@ -357,3 +357,4 @@ ul {
 .cmnt {
   width: 1000px;
 }
+
