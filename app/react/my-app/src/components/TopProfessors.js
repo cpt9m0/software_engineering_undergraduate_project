@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import TopProfessor from './Layout/TopProfessor';
  
 //var jsonData = require('../../file.json');
@@ -36,9 +36,9 @@ class TopProfessors extends React.Component {
         redirectProfessor:false,
         professorsList: [
           {
-            id: "1",
+            id: 1,
             first_name: "behrooz",
-            last_name: "minaii",
+            laste_name: "minaii",
             university: "IUST",
             likes: "10",
             dislikes: "1",
@@ -46,17 +46,21 @@ class TopProfessors extends React.Component {
             comment: "gooood"
           },
           {
-            id: "1",
+            id: 2,
             first_name: "sauleh",
-            last_name: "etemadi",
+            laste_name: "etemadi",
             university: "IUST",
             likes: "15",
-            dislikes: "5",
-            overall_score: "9",
-            comment: "not bad"
+            dislikes: "2",
+            overall_score: "10",
+            comment: "gooood"
           }
         ]
       } 
+      
+      componentWillUnmount() {
+        this.props.history.goForward();
+      }
 
         setRedirectProfessor = () => {
           this.setState({
