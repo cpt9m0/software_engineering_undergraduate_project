@@ -2,46 +2,65 @@
 import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
+import TopProfessor from './Layout/TopProfessor';
  
 //var jsonData = require('../../file.json');
 
-var data = [
-    {
-      "id": 1,
-      "university": "علم و صنعت",
-      "likes": "6",
-      "dislikes": "3",
-      "date": "۱۳۹۸/۵/۲۲",
-      "overall_score": "۶۰۸",
-      "food_rate":"",
-      "sequrity_rate": "",
-      "location_rate": "",
-      "comment": "",
-      "internet_rate": "",
-      "facility_rate": ""
-    }
-];
+//var data = [
+//    {
+//      "id": 1,
+//      "university": "علم و صنعت",
+//      "likes": "6",
+//      "dislikes": "3",
+//      "date": "۱۳۹۸/۵/۲۲",
+//      "overall_score": "۶۰۸",
+//      "food_rate":"",
+//      "sequrity_rate": "",
+//      "location_rate": "",
+//      "comment": "",
+//      "internet_rate": "",
+//      "facility_rate": ""
+//    }
+//];
 
 
 class TopProfessors extends React.Component {
     
     constructor() {
         super();
-     
-        this.state = {
-          overall_score: 1,
-          name: "",
-          university: "",
-          likes: "",
-          dislikes: ""
-        };
       }
 
 
       state = {
-        redirectProfessor:false
+        redirectProfessor:false,
+        professorsList: [
+          {
+            id: 1,
+            first_name: "behrooz",
+            laste_name: "minaii",
+            university: "IUST",
+            likes: "10",
+            dislikes: "1",
+            overall_score: "5",
+            comment: "gooood"
+          },
+          {
+            id: 2,
+            first_name: "sauleh",
+            laste_name: "etemadi",
+            university: "IUST",
+            likes: "15",
+            dislikes: "2",
+            overall_score: "4",
+            comment: "gooood"
+          }
+        ]
       } 
+      
+      componentWillUnmount() {
+        this.props.history.goForward();
+      }
 
         setRedirectProfessor = () => {
           this.setState({
@@ -61,41 +80,45 @@ class TopProfessors extends React.Component {
       //  )
       //}
   render() {
-    const { overall_score } = this.state;
-    const { name } = this.state;
-    const { university } = this.state;
-    const { likes } = this.state;
-    const { dislikes } = this.state;
-    const jsonData = {
-        overall_score: 8.8,
-        name: "مینایی",
-        university: "علم و صنعت",
-        likes: "10",
-        dislikes: "3"
-    }
     
     return (                
       <div>
         <Header/> 
         <div className="allBackground">
-            <div> {this.renderRedirectProfessor()}
-            <div className="ProfessorButton" onClick={this.setRedirectProfessor}>
-                <table>
-                    <tr>
-                        <td id="But">استاد {jsonData.name}</td>
-                        <td id="But">{jsonData.university}</td>
-                        <td id="But">likes: {jsonData.likes}</td>
-                        <td id="But">dislikes: {jsonData.dislikes}</td>
-                        <td id="score">امتیاز {jsonData.overall_score}</td>
-                    </tr>
-
-                </table>
-            </div>
-            </div>
+          <TopProfessor professorsList={this.state.professorsList}/>
         </div>
       </div>
     );
   }
 }
+
+
+//const { overall_score } = this.state;
+//const { name } = this.state;
+//const { university } = this.state;
+//const { likes } = this.state;
+//const { dislikes } = this.state;
+//const jsonData = {
+//    overall_score: 8.8,
+//    name: "مینایی",
+//    university: "علم و صنعت",
+//    likes: "10",
+//    dislikes: "3"
+//}
+
+//<div> {this.renderRedirectProfessor()}
+//            <div className="ProfessorButton" onClick={this.setRedirectProfessor}>
+//                <table>
+//                    <tr>
+//                        <td id="But">استاد {jsonData.name}</td>
+//                        <td id="But">{jsonData.university}</td>
+//                        <td id="But">likes: {jsonData.likes}</td>
+//                        <td id="But">dislikes: {jsonData.dislikes}</td>
+//                        <td id="score">امتیاز {jsonData.overall_score}</td>
+//                    </tr>
+//
+//                </table>
+//            </div>
+//            </div>
 
 export default TopProfessors;

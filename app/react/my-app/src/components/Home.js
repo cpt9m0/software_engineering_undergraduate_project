@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import News from './Layout/News';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 class Home extends Component {
@@ -81,4 +81,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);

@@ -80,15 +80,14 @@ class UniversityRate extends React.Component {
         <Header/> 
         <div className="allBackground">
             <div className="infoPart">
-                <h1>دانشگاه {jsonData.university}</h1>
-                <h2>امتیاز کل {jsonData.score}</h2>
+                <h1>دانشگاه a</h1>
             </div>
             <div className="ratePart">
                 <table>
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate1" 
-                          starCount={10}
+                          starCount={5}
                           value={overall_score}
                           onStarClick={this.onStarClickOverall.bind(this)}/></td>
                         <td><p>امتیاز از دید شما : {overall_score}</p></td>
@@ -96,7 +95,7 @@ class UniversityRate extends React.Component {
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate2" 
-                          starCount={10}
+                          starCount={5}
                           value={food_rate}
                           onStarClick={this.onStarClickFood.bind(this)}/></td>
                         <td><p>کیفیت غذا : {food_rate}</p></td>
@@ -104,7 +103,7 @@ class UniversityRate extends React.Component {
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate3" 
-                          starCount={10}
+                          starCount={5}
                           value={sequrity_rate}
                           onStarClick={this.onStarClickSequrity.bind(this)}/></td>
                         <td><p>امنیت : {sequrity_rate}</p></td>
@@ -112,7 +111,7 @@ class UniversityRate extends React.Component {
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate4" 
-                          starCount={10}
+                          starCount={5}
                           value={location_rate}
                           onStarClick={this.onStarClickLocation.bind(this)}/></td>
                         <td><p>دسترسی وسایل نقلیه عمومی(محل دانشگاه) : {location_rate}</p></td>
@@ -120,7 +119,7 @@ class UniversityRate extends React.Component {
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate5" 
-                          starCount={10}
+                          starCount={5}
                           value={internet_rate}
                           onStarClick={this.onStarClickInternet.bind(this)}/></td>
                         <td><p>کیفیت اینترنت : {internet_rate}</p></td>
@@ -128,17 +127,24 @@ class UniversityRate extends React.Component {
                     <tr className="row">
                         <td><StarRatingComponent 
                           name="rate6" 
-                          starCount={10}
+                          starCount={5}
                           value={facility_rate}
                           onStarClick={this.onStarClickFacility.bind(this)}/></td>
                         <td><p>امکانات : {facility_rate}</p></td>
                     </tr>
-                    
+                    <tr>
+                      <td>
+                      <textarea></textarea>
+                      </td>
+                      <td>
+                        comment:
+                      </td>
+                    </tr>
+                    <td></td>
                 </table>
                 <br/>
                 <button className="submit" onClick={this.setRedirectStudent}><span>تایید</span></button>
             </div>
-            <Comments/>
         </div>
       </div>
     );
