@@ -17,6 +17,7 @@ import './App.css';
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import Comments from './components/Layout/Comment';
 import ContactUs from './components/ContactUs';
+import resultsearchPage from './components/resultsearchPage';
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/ViewUniversity" component={ViewUniversity}/>
         <Route exact path="/AboutUs" component={AboutUs}/>
         <Route exact path="/ContactUs" component={ContactUs}/>
+        <Route exact path="/resultsearchPage" component={resultsearchPage}/>
       </Switch>
     </Router>
     
