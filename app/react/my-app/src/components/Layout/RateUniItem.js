@@ -7,7 +7,7 @@ export class RateItem extends Component {
 
 
     render() {
-        const{username, professor,university, overall_score, quality, grade_rate, difficulty,notebook, attendance, comment} = this.props.rate;
+        const{username, overall_score, food_rate, sequrity_rate, location_rate, internet_rate,facility_rate,comment} = this.props.rate;
         
         return (
             <div>
@@ -17,17 +17,17 @@ export class RateItem extends Component {
                     <table>
                         <tr>
                             <td>overall_score: {overall_score}</td>
-                            <td>quality: {quality}</td>
-                            <td>grade_rate: {grade_rate}</td>
-                            <td>difficulty: {difficulty}</td>
+                            <td>food_rate: {food_rate}</td>
+                            <td>sequrity_rate: {sequrity_rate}</td>
+                            <td>location_rate: {location_rate}</td>
                             
                         </tr>
                     </table>
                     <table>
                         
-                    <tr>
-                            <td>notebook: {notebook ? "دارد" : "ندارد" }</td>
-                            <td>attendance: {attendance ? "دارد" : "ندارد" }</td>
+                        <tr>
+                            <td>internet_rate: {internet_rate}</td>
+                            <td>facility_rate: {facility_rate}</td>
                         </tr>
                     </table>
                     <table className="rateButton2">
@@ -35,6 +35,7 @@ export class RateItem extends Component {
                             <td>comment: {comment}</td>
                         </tr>
                     </table>
+                   
                 </div>
             </div>
             </div>

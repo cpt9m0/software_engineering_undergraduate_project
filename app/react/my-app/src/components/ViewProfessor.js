@@ -43,7 +43,8 @@ class ViewProfessor extends React.Component {
             "grade_rate": "2",
             "difficulty": "4",
             "notebook": false,
-            "attendance": true
+            "attendance": true,
+            "comment": "goood"
           }
         ],
         redirectProfessorRate:false,

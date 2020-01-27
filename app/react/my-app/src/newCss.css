@@ -392,3 +392,10 @@ ul {
    
 }
 
+.rateButton2 {
+  background-color:rgb(21, 26, 63, 0.5);
+  text-align: center;
+  border-radius: 10px;
+  width: 700px;
+   
+}

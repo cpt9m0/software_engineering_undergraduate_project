@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
+import RateUni from './Layout/RateUni'
  
 //var jsonData = require('../../file.json');
 
@@ -32,6 +33,18 @@ class ViewUniversity extends React.Component {
       }
 
       state = {
+        rateList: [
+          {
+            "username": "96441119",
+            "food_rate": "4",
+            "sequrity_rate": "2",
+            "location_rate": "3",
+            "internet_rate": "1",
+            "facility_rate": "2",
+            "overall_score":"3",
+            "comment": "not bad"
+          }
+        ],
         redirectUniversityRate:false,
         university: "a"
       } 
@@ -73,6 +86,7 @@ class ViewUniversity extends React.Component {
             <div className="comments">
                 Comments
             </div>
+            <RateUni rateList={this.state.rateList}/>
         </div>
       </div>
     );
