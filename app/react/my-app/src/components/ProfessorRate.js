@@ -73,7 +73,7 @@ class ProfessorRate extends React.Component {
         <Header/> 
         <div className="allBackground">
             <div className="infoPart">
-                <h1>استاد a</h1>
+                <h1>استاد مینایی</h1>
             </div>
             <div className="ratePart">
                 <table>
