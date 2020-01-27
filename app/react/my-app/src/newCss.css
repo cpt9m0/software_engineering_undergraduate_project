@@ -294,6 +294,23 @@ ul {
   cursor: pointer;
 }
 
+.UniButton{
+  background: #7F9EDC;
+  padding: 3px;
+  margin-left: 80px;
+  margin-right: 80px;
+  border: 1px #ccc dotted;
+  border-radius: 10px;
+  text-align: center;
+  border: dotted;
+}
+
+.UniButton:hover{
+  
+  background-color: #264e86;
+  cursor: pointer;
+}
+
 .UniversityButton{
   background: #7F9EDC;
   margin-top: 30px;

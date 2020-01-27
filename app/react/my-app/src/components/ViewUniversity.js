@@ -33,7 +33,6 @@ class ViewUniversity extends React.Component {
 
       state = {
         redirectUniversityRate:false,
-        id: this.props.location.state.id, 
         university: "a"
       } 
 
@@ -65,7 +64,7 @@ class ViewUniversity extends React.Component {
       <div>
         <Header/> 
         <div className="allBackground">
-            <h2>دانشگاه: {this.props.location.state.university}</h2>
+            <h2>دانشگاه: {this.props.location.state.name}</h2>
             <h1 id="scorep">امتیاز {this.props.location.state.overall_score}</h1>
             <h1 id="plikes">likes: {this.props.location.state.likes}</h1>
             <h1 id="pdislikes">dislikes: {this.props.location.state.dislikes}</h1>

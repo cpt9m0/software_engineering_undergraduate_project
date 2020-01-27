@@ -764,10 +764,10 @@ border-color: rgb(136, 0, 0);
 
 .left {
   left: 0;
-  background-color: #a5beab;
+  background-color:rgba(49, 48, 51, 50%);
 }
 
 .right {
   right: 0;
-  background-color: rgb(176, 171, 197);
+  background-color: rgba(49, 48, 51, 50%);
 }

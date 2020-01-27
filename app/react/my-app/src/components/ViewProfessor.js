@@ -33,7 +33,6 @@ class ViewProfessor extends React.Component {
       
       state = {
         redirectProfessorRate:false,
-        id: this.props.this.props.location.state.id, 
         first_name: "a",
         last_name: "b"
       } 
