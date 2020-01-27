@@ -4,6 +4,7 @@ import '../newCss.css';
 import '../App.css'
 import Login from './Login';
 import { Redirect } from 'react-router-dom';
+import VP from './Layout/VP';
 
   
 class Header extends Component {
@@ -12,7 +13,9 @@ class Header extends Component {
         redirectLoginReg: false,
         redirectHome: false,
         redirectAbout:false,
-        redirectContact:false
+        redirectContact:false,
+        redirectSearch: false ,
+        value: ""
       } 
     
         setRedirectLoginReg = () => {
@@ -32,6 +35,17 @@ class Header extends Component {
               redirectHome: true
             })
           }
+          setGotoSearch = () => {
+            this.setState({
+              redirectSearch: true
+            })
+          }
+
+          renderSearch = () => {
+            if (this.state.redirectSearch) {
+              return <Redirect to='./resultsearchPage' />
+            }
+          }
   
           renderRedirectHome = () => {
             if (this.state.redirectHome) {
@@ -42,6 +56,12 @@ class Header extends Component {
           setRedirectAbout = () => {
             this.setState({
               redirectAbout: true
+            })
+          }
+
+          handleChange = event => {
+            this.setState({
+              value: event.target.value
             })
           }
   
@@ -93,13 +113,15 @@ class Header extends Component {
             {this.renderRedirectAbout()} 
                 درباره سایت    
             </div>
-            <form className="searchBar">
-                <input type = "text" name = "search" placeholder = "استاد یا دانشگاه مورد نظر خود را جستجو کنید"></input>
+            <form className="searchBar" onSubmit={this.setGotoSearch}>
+              {this.renderSearch()}
+              
+                <input type = "text" name = "search" placeholder = "استاد یا دانشگاه مورد نظر خود را جستجو کنید" onChange={this.handleChange}></input>
             </form>
             </div>
         
         );
     }
 }
-
+//<OnSearch value={this.state.value}/>
 export default Header;
