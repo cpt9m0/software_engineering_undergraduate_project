@@ -6,7 +6,7 @@ class TopUniversity extends Component {
 
     render() {
         return this.props.universitiesList.map((topUniversity) => (
-            <TopUniversityItem id = {topUniversity.id} topUniversity = {topUniversity}/>
+            <TopUniversityItem name = {topUniversity.name} topUniversity = {topUniversity}/>
         ));
     }
 }

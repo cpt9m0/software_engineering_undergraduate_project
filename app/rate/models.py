@@ -43,7 +43,8 @@ class Location(models.Model):
 
 
 class University(models.Model):
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=128, primary_key=True)
+    overall_score = models.DecimalField(max_digits=3, decimal_places=2, default=0)
     location = models.ForeignKey(
         Location,
         on_delete=models.CASCADE,
@@ -137,16 +138,25 @@ class UniversityRate(models.Model):
 
 # Signals
 def caculate_professor_overall_score(sender, instance, *args, **kwargs):
+    professor = instance.professor
     sum_ = instance.total_score + instance.difficaullty +\
          instance.quality + instance.grade_rate
-    instance.overall_score = sum_ / 4
+    sum_ = sum_ / 4
+    professor.overall_score = sum_
+    professor.save()
+    instance.overall_score = sum_
 
 
 def caculate_university_overall_score(sender, instance, *args, **kwargs):
+    university = instance.university
+
     sum_ = instance.total_score + instance.food_rate +\
             instance.security_rate + instance.location_rate +\
             instance.facility_rate + instance.internet_rate
-    instance.overall_score = sum_ / 6
+    sum_ = sum_ / 6
+    university.overall_score = sum_
+    university.save()
+    instance.overall_score = sum_
 
 
 pre_save.connect(caculate_university_overall_score, sender=UniversityRate)

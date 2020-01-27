@@ -7,14 +7,11 @@ export class TopProfessorItem extends Component {
 
     state = {
         redirectProfessor:false, 
-        id: this.props.topProfessor.id, 
+        id: this.props.topProfessor.username, 
         first_name: this.props.topProfessor.first_name,
         last_name: this.props.topProfessor.last_name,
         university: this.props.topProfessor.university, 
-        likes: this.props.topProfessor.likes, 
-        dislikes: this.props.topProfessor.dislikes, 
-        overall_score: this.props.topProfessor.overall_score , 
-        comment: this.props.topProfessor.comment
+        overall_score: this.props.topProfessor.overall_score 
       } 
 
         setRedirectProfessor = () => {
@@ -30,17 +27,18 @@ export class TopProfessorItem extends Component {
                     id: this.state.id,
                     first_name: this.state.first_name,
                     last_name:this.state.last_name,
-                    likes: this.state.likes,
-                    dislikes: this.state.dislikes,
                     university: this.state.university,
                     overall_score: this.state.overall_score,
-                    comment: this.state.comment
                 } }}/>
           }
         }
 
     render() {
-        const{id, first_name, last_name, university, likes, dislikes, overall_score, comment } = this.props.topProfessor;
+        console.log(this.props.topProfessor);
+        console.log(this.props.topProfessor['overall_score']);
+        const{username, first_name, last_name, university, overall_score } = this.props.topProfessor;
+        console.log(username);
+        
         return (
             <div> {this.renderRedirectProfessor()}
             <div className="ProfessorButton" onClick={this.setRedirectProfessor}>
@@ -48,9 +46,7 @@ export class TopProfessorItem extends Component {
                     <tr>
                         <td id="But">استاد {first_name} {last_name}</td>
                         <td id="But">{university}</td>
-                        <td id="But">likes: {likes}</td>
-                        <td id="But">dislikes: {dislikes}</td>
-                        <td id="score">امتیاز {overall_score}</td>
+                        <td id="score">امتیاز {this.props.topProfessor.overall_score}</td>
                     </tr>
 
                 </table>

@@ -4,6 +4,7 @@ import '../newCss.css';
 import Header from './Header';
 import { Redirect, withRouter } from 'react-router-dom';
 import TopProfessor from './Layout/TopProfessor';
+import axios from 'axios';
  
 //var jsonData = require('../../file.json');
 
@@ -34,29 +35,28 @@ class TopProfessors extends React.Component {
 
       state = {
         redirectProfessor:false,
-        professorsList: [
-          {
-            id: 1,
-            first_name: "behrooz",
-            laste_name: "minaii",
-            university: "IUST",
-            likes: "10",
-            dislikes: "1",
-            overall_score: "5",
-            comment: "gooood"
-          },
-          {
-            id: 2,
-            first_name: "sauleh",
-            laste_name: "etemadi",
-            university: "IUST",
-            likes: "15",
-            dislikes: "2",
-            overall_score: "4",
-            comment: "gooood"
+        professorsList: []
+      }
+
+      get_data = () => {
+        const headers = {
+          'Content-Type': 'application/json',
+        }
+        let HOST = 'http://127.0.0.1:8000';
+
+        axios.get(`${HOST}/user/get-top-professors/`, {}, {headers:headers}).then(
+          res => {
+            var rates = res.data;
+            
+            console.log(rates);
+            this.setState({professorsList: rates})
           }
-        ]
-      } 
+        )
+      }
+
+      componentWillMount(){        
+        this.get_data();
+      }
       
       componentWillUnmount() {
         this.props.history.goForward();

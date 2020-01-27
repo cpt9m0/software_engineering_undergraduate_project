@@ -30,7 +30,6 @@ class Home extends Component {
   componentWillMount = function () {
 
     this.get_data();
-    console.log(this.state.newsList);
     
   }
 
