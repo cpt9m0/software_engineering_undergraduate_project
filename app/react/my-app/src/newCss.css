@@ -375,3 +375,20 @@ ul {
   width: 1000px;
 }
 
+.rateButton1 {
+  background-color:#7F9EDC;
+  text-align: center;
+  border-radius: 10px;
+  width: 700px;
+  margin: 20px auto; 
+  border:solid;
+}
+
+.rateButton4 {
+  background-color:rgb(38, 78, 134, 0.5);
+  text-align: center;
+  border-radius: 10px;
+  width: 700px;
+   
+}
+

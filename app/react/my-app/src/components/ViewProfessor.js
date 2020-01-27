@@ -4,6 +4,7 @@ import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 import TopProfessorItem from './Layout/TopProfessorItem';
+import Rate from './Layout/Rate';
  
 //var jsonData = require('../../file.json');
 
@@ -32,6 +33,19 @@ class ViewProfessor extends React.Component {
       }
       
       state = {
+        rateList: [
+          {
+            "username": "96441119",
+            "professor": "Behrooz Minaii",
+            "overall_score":"3",
+            "university": "IUST",
+            "quality": "4",
+            "grade_rate": "2",
+            "difficulty": "4",
+            "notebook": false,
+            "attendance": true
+          }
+        ],
         redirectProfessorRate:false,
         first_name: "a",
         last_name: "b"
@@ -76,6 +90,7 @@ class ViewProfessor extends React.Component {
             <div className="comments">
                 Rates By Regular Students
             </div>
+            <Rate rateList={this.state.rateList}/>
         </div>
       </div>
     );
