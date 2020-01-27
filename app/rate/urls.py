@@ -9,7 +9,7 @@ urlpatterns = [
         name='get_universities'
         ),
     path(
-        'get-university-rates/<int:university_id>/',
+        'get-university-rates/',
         University.get_rates,
         name='get_rates'
         ),

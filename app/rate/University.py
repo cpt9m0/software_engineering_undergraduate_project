@@ -33,13 +33,14 @@ def get_top_universities(request):
         return JsonResponse(serializer.data, safe=False)
 
 
-def get_rates(request, university_id):
+def get_rates(request):
     """
     Get university rates by its id,
     or create a new one
-    """
+    """    
+    university_name = request.GET.get('name')
     try:
-        university = University.objects.get(id=university_id)
+        university = University.objects.get(name=university_name)
     except University.DoesNotExist:
         return HttpResponse(status=404)
 

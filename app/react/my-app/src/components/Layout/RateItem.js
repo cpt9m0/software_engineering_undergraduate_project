@@ -7,7 +7,7 @@ export class RateItem extends Component {
 
 
     render() {
-        const{username, professor,university, overall_score, quality, grade_rate, difficulty,notebook, attendance, comment} = this.props.rate;
+        const{username, professor,university, overall_score, quality, grade_rate, difficaullty,notebook, attendance, comment} = this.props.rate;
         
         return (
             <div>
@@ -19,7 +19,7 @@ export class RateItem extends Component {
                             <td>overall_score: {overall_score}</td>
                             <td>quality: {quality}</td>
                             <td>grade_rate: {grade_rate}</td>
-                            <td>difficulty: {difficulty}</td>
+                            <td>difficaullty: {difficaullty}</td>
                             
                         </tr>
                     </table>

@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import '../newCss.css';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
-import RateUni from './Layout/RateUni'
+import RateUni from './Layout/RateUni';
+import axios from 'axios';
  
 //var jsonData = require('../../file.json');
 
@@ -66,6 +67,27 @@ class ViewUniversity extends React.Component {
           }
         }
 
+        get_data = () => {
+          const headers = {
+            'Content-Type': 'application/json',
+          }
+          let HOST = 'http://127.0.0.1:8000';
+  
+          axios.get(`${HOST}/university/get-university-rates/?name=${this.props.location.state.name}`, {}, {headers:headers}).then(
+            res => {
+              var rates = res.data;
+              
+              console.log(rates);
+              this.setState({rateList: rates})
+            }
+          )
+        }
+
+
+        componentWillMount(){
+          this.get_data();
+        }
+
       //componentDidMount() {
       //  axios.get('/user/get-top-professors', data, {headers:headers}).then(
       //    res => console.log(res.data)
@@ -79,8 +101,6 @@ class ViewUniversity extends React.Component {
         <div className="allBackground">
             <h2>دانشگاه: {this.props.location.state.name}</h2>
             <h1 id="scorep">امتیاز {this.props.location.state.overall_score}</h1>
-            <h1 id="plikes">likes: {this.props.location.state.likes}</h1>
-            <h1 id="pdislikes">dislikes: {this.props.location.state.dislikes}</h1>
             <hr/>
             <div>{this.renderRedirectUniversityRate()}<button className="buttonStudent" onClick={this.setRedirectUniversityRate}><span>ارزیابی دانشگاه</span></button></div>
             <div className="comments">

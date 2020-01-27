@@ -7,7 +7,8 @@ import axios from 'axios';
 
 class RegisterOstad extends Component {
   state = {
-    redirectHome: false
+    redirectHome: false,
+    redirectLogin: false
   }
 
   constructor(props) {
@@ -18,20 +19,37 @@ class RegisterOstad extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      Universities: [
-        {id: '1', name: 'دانشگاه علم و صنعت'},
-        {id: '2', name: 'دانشگاه تهران'},
-        {id: '3', name: 'دانشگاه امیرکبیر'}
-      ]
-    });
+
+  get_universities(){
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    let HOST = 'http://127.0.0.1:8000';
+
+    axios.get(`${HOST}/university/get-all-universities/`, {}, {headers:headers}).then(
+      res => {
+        var data = res.data;
+        
+        console.log(data);
+        this.setState({Universities: data})
+      }
+    )
   }
+
+  componentWillMount() {
+    this.get_universities();
+  }
+
+  componentDidMount() {}
 
   setRedirectHome = () => {
     this.setState({
       redirectHome: true
     })
+  }
+
+  renderRedirectLogin = () => {
+      return <Redirect to='./Login' />
   }
 
   renderRedirectHome = () => {
@@ -45,6 +63,7 @@ class RegisterOstad extends Component {
     var username = document.getElementById("username").value;
     var first_name = document.getElementById("first_name").value;
     var last_name = document.getElementById("last_name").value;
+    var uni = document.getElementById("uni").value;
     var email = document.getElementById("email").value;
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
@@ -58,13 +77,16 @@ class RegisterOstad extends Component {
         "password": password1,
         "first_name": first_name,
         "last_name": last_name,
+        "university": uni,
         "email": email
       }
+
+      console.log(data);
       
       axios.post('http://127.0.0.1:8000/user/register-professor/', data, {headers:headers}).then(
         res => {
           if (res.status === 201) {
-            alert("redirect to login page");
+             window.location.replace("Login")
           }    
         }
       ).catch(error=>{
@@ -105,7 +127,7 @@ class RegisterOstad extends Component {
           <p>نام خانوادگی</p>
           <input type="text" name="" id="last_name" placeholder="نام خانوادگی را وارد کنید"></input>
           <div >
-          <select className="selectUni2">
+          <select id="uni" className="selectUni2">
           {UniversitiesList}
         </select>
         </div>

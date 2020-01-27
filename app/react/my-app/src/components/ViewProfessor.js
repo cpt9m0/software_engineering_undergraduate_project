@@ -5,6 +5,7 @@ import Header from './Header';
 import { Redirect } from 'react-router-dom';
 import TopProfessorItem from './Layout/TopProfessorItem';
 import Rate from './Layout/Rate';
+import axios from 'axios';
  
 //var jsonData = require('../../file.json');
 
@@ -70,6 +71,28 @@ class ViewProfessor extends React.Component {
           }
         }
 
+
+        get_data = () => {
+          const headers = {
+            'Content-Type': 'application/json',
+          }
+          let HOST = 'http://127.0.0.1:8000';
+  
+          axios.get(`${HOST}/user/get-rates/${this.props.location.state.id}`, {}, {headers:headers}).then(
+            res => {
+              var rates = res.data;
+              
+              console.log(rates);
+              this.setState({rateList: rates})
+            }
+          )
+        }
+
+
+        componentWillMount(){
+          this.get_data();
+        }
+
       //componentDidMount() {
       //  axios.get('/user/get-top-professors', data, {headers:headers}).then(
       //    res => console.log(res.data)
@@ -83,8 +106,6 @@ class ViewProfessor extends React.Component {
         <div className="allBackground">
             <h1>استاد {this.props.location.state.first_name} {this.props.location.state.last_name}</h1>
             <h1 id="scorep">امتیاز {this.props.location.state.overall_score}</h1>
-            <h1 id="plikes">likes: {this.props.location.state.likes}</h1>
-            <h1 id="pdislikes">dislikes: {this.props.location.state.dislikes}</h1>
             <h2>دانشگاه: {this.props.location.state.university}</h2>
             <hr/>
             <div>{this.renderRedirectProfessorRate()}<button className="buttonStudent" onClick={this.setRedirectProfessorRate}><span>ارزیابی استاد</span></button></div>

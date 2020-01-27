@@ -8,6 +8,7 @@
   }
   
   .image{
+    z-index: -20;
     margin-top: -40px;
     margin-left: 100px;
     position: relative;
@@ -114,7 +115,7 @@
     margin: 10px auto;
     position: absolute;
     top: 0px;
-    left: -1375px;
+    right: 1270px;
   }
 
 .contactButton {
@@ -155,7 +156,7 @@ background-color: #7F9EDC;
   margin-top: 30px;
   margin-left: 80px;
   margin-right: 80px;
-  height: 150px;
+  padding: 10px;
   border: 1px #ccc dotted;
   border-radius: 10px;
   text-align: center;
@@ -230,7 +231,7 @@ ul {
   margin-top: 30px;
   margin-left: 300px;
   margin-right: 300px;
-  height: 85px;
+  padding: 10px;
   border: 1px #ccc dotted;
   border-radius: 10px;
   text-align: center;
@@ -316,7 +317,7 @@ ul {
   margin-top: 30px;
   margin-left: 300px;
   margin-right: 300px;
-  height: 85px;
+  padding: 10px;
   border: 1px #ccc dotted;
   border-radius: 10px;
   text-align: center;

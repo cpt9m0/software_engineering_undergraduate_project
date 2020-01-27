@@ -19,15 +19,27 @@ class Register extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      Universities: [
-        {id: '1', name: 'دانشگاه علم و صنعت'},
-        {id: '2', name: 'دانشگاه تهران'},
-        {id: '3', name: 'دانشگاه امیرکبیر'}
-      ]
-    });
+  get_universities(){
+    const headers = {
+      'Content-Type': 'application/json',
+    }
+    let HOST = 'http://127.0.0.1:8000';
+
+    axios.get(`${HOST}/university/get-all-universities/`, {}, {headers:headers}).then(
+      res => {
+        var data = res.data;
+        
+        console.log(data);
+        this.setState({Universities: data})
+      }
+    )
   }
+
+  componentWillMount(){
+    this.get_universities();
+  }
+
+  componentDidMount() {}
 
   setRedirectHome = () => {
     this.setState({
@@ -44,6 +56,7 @@ class Register extends Component {
   doRegister = e => {
     e.preventDefault();
     var username = document.getElementById("username").value;
+    var uni = document.getElementById("uni").value;
     var email = document.getElementById("email").value;
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
@@ -55,13 +68,14 @@ class Register extends Component {
       const data = {
         "username": username,
         "email": email,
+        "university": uni,
         "password": password2
       }
       console.log(data);
       axios.post('http://localhost:8000/user/register-user/', data, {headers: headers}).then(
         res => {
           if(res.status == 201){
-            console.log(res.body);
+            window.location.replace("Login");
           }
         }
       ).catch(error => {
@@ -108,7 +122,7 @@ class Register extends Component {
           <p>شماره دانشجویی</p>
           <input type="text" name="" id="username" placeholder="شماره دانشجویی خود را وارد کنید"></input>
           <div >
-          <select className="selectUni2">
+          <select id="uni" className="selectUni2">
           {UniversitiesList}
         </select>
         </div>

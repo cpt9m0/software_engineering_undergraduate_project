@@ -7,7 +7,7 @@ export class RateItem extends Component {
 
 
     render() {
-        const{username, overall_score, food_rate, sequrity_rate, location_rate, internet_rate,facility_rate,comment} = this.props.rate;
+        const{username, overall_score, food_rate, security_rate, location_rate, internet_rate,facility_rate,comment} = this.props.rate;
         
         return (
             <div>
@@ -18,7 +18,7 @@ export class RateItem extends Component {
                         <tr>
                             <td>overall_score: {overall_score}</td>
                             <td>food_rate: {food_rate}</td>
-                            <td>sequrity_rate: {sequrity_rate}</td>
+                            <td>security_rate: {security_rate}</td>
                             <td>location_rate: {location_rate}</td>
                             
                         </tr>
