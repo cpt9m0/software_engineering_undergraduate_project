@@ -10,6 +10,24 @@ class RegisterOstad extends Component {
     redirectHome: false
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      Universities: []
+     
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      Universities: [
+        {id: '1', name: 'دانشگاه علم و صنعت'},
+        {id: '2', name: 'دانشگاه تهران'},
+        {id: '3', name: 'دانشگاه امیرکبیر'}
+      ]
+    });
+  }
+
   setRedirectHome = () => {
     this.setState({
       redirectHome: true
@@ -59,6 +77,15 @@ class RegisterOstad extends Component {
 
 
   render() {
+    const { Universities } = this.state;
+
+    let UniversitiesList = Universities.length > 0
+      && Universities.map((item, i) => {
+      return (
+        <option key={i} value={item.id}>{item.name}</option>
+      )
+    }, this);
+  
     return (
     <div className="App">
       <img src= {logo} className="userr"></img>
@@ -77,16 +104,11 @@ class RegisterOstad extends Component {
           <input type="text" name="" id="first_name" placeholder="نام خود را وارد کنید"></input>
           <p>نام خانوادگی</p>
           <input type="text" name="" id="last_name" placeholder="نام خانوادگی را وارد کنید"></input>
-          <button className="selectUni"><span>دانشگاه</span></button>
-                    <div className="dropdown">
-                       <button class="selectUni2">
-                      </button>
-                     <div className="dropdown-content">
-                     <a href="#">دانشگاه علم و صنعت</a>
-                    <a href="#">دانشگاه تهران</a>
-                    <a href="#">دانشگاه امیرکبیر</a>
-                    </div>
-                    </div>
+          <div >
+          <select className="selectUni2">
+          {UniversitiesList}
+        </select>
+        </div>
           <p>شماره پرسنلی</p>
           <input type="text" name="" id="username" placeholder="شماره پرسنلی خود را وارد کنید"></input>
           <p>ایمیل</p>

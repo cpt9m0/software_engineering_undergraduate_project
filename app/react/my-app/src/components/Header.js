@@ -72,7 +72,7 @@ class Header extends Component {
                 {
                     this.props.username!=null
                     ?
-                        <h3>خوشامدید {this.props.username}</h3>
+                        <h3>خوش آمدید {this.props.username}</h3>
                     :
                         <div>
                     {this.renderRedirectLoginReg()}

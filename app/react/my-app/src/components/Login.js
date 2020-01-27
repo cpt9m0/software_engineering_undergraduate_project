@@ -7,6 +7,8 @@ import Logintoregister from './Logintoregister';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Home from "./Home";
+import ContactUs from "./ContactUs";
+import AboutUs from "./AboutUs";
 
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -16,6 +18,8 @@ class Login extends Component {
   state = {
     redirect: false,
     redirectHome:false,
+    redirectContactUs:false,
+    redirectAboutUs:false,
     username: "",
     password: "",
     isLogin: false,
@@ -43,6 +47,20 @@ class Login extends Component {
         redirectHome: true
       })
     }
+
+    setRedirectContactUs = () => {
+      this.setState({
+        redirectContactUs: true
+      })
+    }
+
+
+    setRedirectAboutUs = () => {
+      this.setState({
+        redirectAboutUs: true
+      })
+    }
+
 
     doLogin = event => {
       event.preventDefault();
@@ -87,6 +105,18 @@ class Login extends Component {
       }
     }
 
+    renderRedirectContactUs = () => {
+      if (this.state.renderRedirectContactUs) {
+        return <Redirect to='./ContactUs' />
+      }
+    }
+
+    renderRedirectAboutUs = () => {
+      if (this.state.renderRedirectAboutUs) {
+        return <Redirect to='./AboutUs' />
+      }
+    }
+
 
   render() {
     return (
@@ -100,8 +130,8 @@ class Login extends Component {
                 <img src= {logo} className="userr"></img>
                 <div className="sidebar">
                   <a href="#home" onClick={this.setRedirectHome}>{this.renderRedirectHome()}صفحه اصلی</a>
-                  <a href="#contact">تماس با ما</a>
-                  <a href="#about">درباره سایت</a>
+                  <a href="#contact" onClick={this.setRedirectContactUs}>{this.renderRedirectContactUs()}تماس با ما</a>
+                  <a href="#about" onClick={this.setRedirectAboutUs}>{this.renderRedirectAboutUs()}درباره سایت</a>
                 </div>
 
                 <form className="searchBar">
